@@ -26,8 +26,23 @@ async function connectToWhatsApp() {
             printQRInTerminal: true,
             auth: state,
             defaultQueryTimeoutMs: undefined,
-            // Add browser identification to prevent unnecessary reauth
-            browser: ['SEABOT', 'Chrome', '1.0.0']
+            // Add these parameters to improve connection stability
+            browser: ['SEABOT', 'Chrome', '1.0.0'],
+            connectTimeoutMs: 60_000,
+            keepAliveIntervalMs: 10_000,
+            retryRequestDelayMs: 2000,
+            // Add message retry configuration
+            patchMessageBeforeSending: (message) => {
+                const requiresPatch = !!(
+                    message.buttonText || 
+                    message.templateButtons || 
+                    message.listMessage
+                );
+                if (requiresPatch) {
+                    message = { viewOnceMessage: { message: { messageContextInfo: { deviceListMetadataVersion: 2, deviceListMetadata: {} }, ...message } } };
+                }
+                return message;
+            }
         });
 
         // Save session immediately when we receive it
