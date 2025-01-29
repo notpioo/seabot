@@ -4,17 +4,17 @@ const connectDB = require('./config/database');
 const handleCommand = require('./handlers/commandHandler');
 const messageHandler = require('./handlers/messageHandler');
 const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
-// Pastikan direktori auth_info ada
-const AUTH_FOLDER = './auth_info';
+// Use persistent storage directory in Railway
+const AUTH_FOLDER = path.join(process.cwd(), 'auth_info');
 if (!fs.existsSync(AUTH_FOLDER)) {
     fs.mkdirSync(AUTH_FOLDER, { recursive: true });
 }
 
 async function connectToWhatsApp() {
     try {
-        // Pastikan useMultiFileAuthState mengembalikan nilai
         const { state, saveCreds } = await useMultiFileAuthState(AUTH_FOLDER);
         
         if (!state) {
@@ -25,26 +25,38 @@ async function connectToWhatsApp() {
         const client = makeWASocket({
             printQRInTerminal: true,
             auth: state,
-            defaultQueryTimeoutMs: undefined // Tambahkan ini untuk menghindari timeout
+            defaultQueryTimeoutMs: undefined,
+            // Add browser identification to prevent unnecessary reauth
+            browser: ['SEABOT', 'Chrome', '1.0.0']
+        });
+
+        // Save session immediately when we receive it
+        client.ev.on('creds.update', async () => {
+            await saveCreds();
+            console.log('Credentials updated!');
         });
 
         client.ev.on('connection.update', async (update) => {
             const { connection, lastDisconnect } = update;
 
             if (connection === 'open') {
-                console.log('Connected to WhatsApp');
+                console.log('Connected to WhatsApp!');
             }
 
             if (connection === 'close') {
                 const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
-                console.log('connection closed due to ', lastDisconnect?.error, ', reconnecting ', shouldReconnect);
+                console.log('Connection closed due to ', lastDisconnect?.error, ', reconnecting ', shouldReconnect);
+                
                 if (shouldReconnect) {
                     connectToWhatsApp();
+                } else {
+                    console.log('Connection closed. Please scan QR code to reconnect.');
+                    // Optional: Clear auth folder if logged out
+                    fs.rmSync(AUTH_FOLDER, { recursive: true, force: true });
+                    fs.mkdirSync(AUTH_FOLDER, { recursive: true });
                 }
             }
         });
-
-        client.ev.on('creds.update', saveCreds);
 
         client.ev.on('messages.upsert', async ({ messages }) => {
             const msg = messages[0];
@@ -62,7 +74,6 @@ async function connectToWhatsApp() {
 
     } catch (error) {
         console.error('Error in connectToWhatsApp:', error);
-        // Reconnect after delay
         setTimeout(connectToWhatsApp, 5000);
     }
 }
