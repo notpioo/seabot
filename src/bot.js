@@ -7,8 +7,12 @@ const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
-// Use persistent storage directory in Railway
-const AUTH_FOLDER = path.join(process.cwd(), 'auth_info');
+// Use persistent storage directory
+const AUTH_FOLDER = process.env.RAILWAY_VOLUME_MOUNT_PATH 
+  ? path.join(process.env.RAILWAY_VOLUME_MOUNT_PATH, 'auth_info')
+  : path.join(process.cwd(), 'auth_info');
+
+// Ensure auth directory exists
 if (!fs.existsSync(AUTH_FOLDER)) {
     fs.mkdirSync(AUTH_FOLDER, { recursive: true });
 }
@@ -26,31 +30,26 @@ async function connectToWhatsApp() {
             printQRInTerminal: true,
             auth: state,
             defaultQueryTimeoutMs: undefined,
-            // Add these parameters to improve connection stability
             browser: ['SEABOT', 'Chrome', '1.0.0'],
+            // Add these connection options
             connectTimeoutMs: 60_000,
+            defaultQueryTimeoutMs: 0,
             keepAliveIntervalMs: 10_000,
-            retryRequestDelayMs: 2000,
-            // Add message retry configuration
-            patchMessageBeforeSending: (message) => {
-                const requiresPatch = !!(
-                    message.buttonText || 
-                    message.templateButtons || 
-                    message.listMessage
-                );
-                if (requiresPatch) {
-                    message = { viewOnceMessage: { message: { messageContextInfo: { deviceListMetadataVersion: 2, deviceListMetadata: {} }, ...message } } };
-                }
-                return message;
+            emitOwnEvents: true,
+            retryRequestDelayMs: 250
+        });
+
+        // Enhanced credentials saving
+        client.ev.on('creds.update', async () => {
+            try {
+                await saveCreds();
+                console.log('Credentials updated and saved successfully!');
+            } catch (error) {
+                console.error('Failed to save credentials:', error);
             }
         });
 
-        // Save session immediately when we receive it
-        client.ev.on('creds.update', async () => {
-            await saveCreds();
-            console.log('Credentials updated!');
-        });
-
+        // Enhanced connection handling
         client.ev.on('connection.update', async (update) => {
             const { connection, lastDisconnect } = update;
 
@@ -59,20 +58,24 @@ async function connectToWhatsApp() {
             }
 
             if (connection === 'close') {
-                const shouldReconnect = lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut;
-                console.log('Connection closed due to ', lastDisconnect?.error, ', reconnecting ', shouldReconnect);
+                const shouldReconnect = (lastDisconnect?.error?.output?.statusCode !== DisconnectReason.loggedOut);
+                console.log('Connection closed due to:', lastDisconnect?.error, 'Reconnecting:', shouldReconnect);
                 
                 if (shouldReconnect) {
-                    connectToWhatsApp();
+                    console.log('Attempting to reconnect...');
+                    setTimeout(connectToWhatsApp, 3000);
                 } else {
-                    console.log('Connection closed. Please scan QR code to reconnect.');
-                    // Optional: Clear auth folder if logged out
-                    fs.rmSync(AUTH_FOLDER, { recursive: true, force: true });
-                    fs.mkdirSync(AUTH_FOLDER, { recursive: true });
+                    console.log('Session ended, please scan QR code to reconnect.');
+                    // Only clear auth if explicitly logged out
+                    if (lastDisconnect?.error?.output?.statusCode === DisconnectReason.loggedOut) {
+                        fs.rmSync(AUTH_FOLDER, { recursive: true, force: true });
+                        fs.mkdirSync(AUTH_FOLDER, { recursive: true });
+                    }
                 }
             }
         });
 
+        // Rest of your event handlers...
         client.ev.on('messages.upsert', async ({ messages }) => {
             const msg = messages[0];
             if (!msg.message) return;
