@@ -9,8 +9,17 @@ async function connectToWhatsApp() {
   const { state, saveCreds } = await useMultiFileAuthState('auth_info');
   
   const client = makeWASocket({
-    printQRInTerminal: true,
-    auth: state
+    printQRInTerminal: false, // ubah ke false
+    qr: true // tambahkan ini untuk mendapatkan QR dalam format gambar
+  });
+  
+  // Tambahkan handler untuk QR
+  client.ev.on('qr', qr => {
+    // Generate QR code sebagai gambar
+    qrcode.toFile('qr.png', qr, function (err) {
+      if (err) throw err;
+      console.log('QR Code saved as qr.png');
+    });
   });
 
   client.ev.on('connection.update', async (update) => {
