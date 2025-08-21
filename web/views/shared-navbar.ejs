@@ -1,0 +1,57 @@
+
+<!-- Navigation with Hamburger Menu -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <!-- Hamburger Menu Button -->
+        <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <a class="navbar-brand" href="/dashboard">
+            <i class="fas fa-robot me-2"></i>
+            SeaBot Dashboard
+        </a>
+        
+        <!-- Collapsible Menu -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'dashboard' ? 'active' : '' %>" href="/dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'data' ? 'active' : '' %>" href="/data">
+                        <i class="fas fa-database"></i> Data
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'command' ? 'active' : '' %>" href="/command">
+                        <i class="fas fa-terminal"></i> Command
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'menu' ? 'active' : '' %>" href="/menu">
+                        <i class="fas fa-bars"></i> Menu
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= currentPage === 'config' ? 'active' : '' %>" href="/config">
+                        <i class="fas fa-cog"></i> Config
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="navbar-nav">
+                <span class="navbar-text me-3">
+                    <i class="fas fa-user"></i>
+                    Admin
+                </span>
+                <a class="nav-link" href="/auth/logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>

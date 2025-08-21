@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+        }
+
+        .main-content {
+            min-height: calc(100vh - 76px);
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .command-table {
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+        .badge-active {
+            background-color: #28a745;
+        }
+
+        .badge-inactive {
+            background-color: #dc3545;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 19px;
+            width: 19px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #28a745;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(25px);
+        }
+    </style>
+</head>
+<body>
+    <%- include('shared-navbar', { currentPage: 'command' }) %>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container-fluid py-4">
+            <!-- Page Header -->
+            <div class="page-header text-center">
+                <h1><i class="fas fa-terminal"></i> Command Management</h1>
+                <p class="lead mb-0">Manage bot commands, toggle status, and configure settings</p>
+            </div>
+
+            <!-- Commands Table -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card command-table">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">
+                                <i class="fas fa-list"></i> Available Commands
+                            </h5>
+                            <button class="btn btn-success btn-sm" onclick="refreshCommands()">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th scope="col">Command</th>
+                                            <th scope="col">Description</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Used Count</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% if (commands && commands.length > 0) { %>
+                                            <% commands.forEach(command => { %>
+                                            <tr>
+                                                <td>
+                                                    <strong><%= command.name %></strong>
+                                                    <% if (command.ownerOnly) { %>
+                                                        <span class="badge bg-warning text-dark ms-1">Owner Only</span>
+                                                    <% } %>
+                                                </td>
+                                                <td><%= command.description %></td>
+                                                <td>
+                                                    <span class="badge bg-secondary"><%= command.category %></span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-primary"><%= command.usageCount %></span>
+                                                </td>
+                                                <td>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" <%= command.isActive ? 'checked' : '' %>
+                                                               onchange="toggleCommand('<%= command._id %>', this.checked)">
+                                                        <span class="slider"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-sm btn-outline-primary"
+                                                            onclick="editCommand('<%= command._id %>')">
+                                                        <i class="fas fa-edit"></i> Edit
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                        <% } else { %>
+                                            <tr>
+                                                <td colspan="6" class="text-center py-4">
+                                                    <div class="text-muted">
+                                                        <i class="fas fa-inbox fa-2x mb-2"></i>
+                                                        <p>No commands found. Initialize commands first.</p>
+                                                        <button class="btn btn-primary" onclick="initializeCommands()">
+                                                            <i class="fas fa-plus"></i> Initialize Commands
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <% } %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="card bg-success text-white">
+                        <div class="card-body text-center">
+                            <h4><%= stats.totalCommands %></h4>
+                            <p class="mb-0">Active Commands</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-info text-white">
+                        <div class="card-body text-center">
+                            <h4><%= stats.totalUsedCommands %></h4>
+                            <p class="mb-0">Total Usage</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white">
+                        <div class="card-body text-center">
+                            <h4><%= stats.inactiveCommands %></h4>
+                            <p class="mb-0">Inactive Commands</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-secondary text-white">
+                        <div class="card-body text-center">
+                            <h4><%= stats.ownerCommands %></h4>
+                            <p class="mb-0">Owner Only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Command Modal -->
+    <div class="modal fade" id="editCommandModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Command</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editCommandForm">
+                        <input type="hidden" id="editCommandId">
+                        <div class="mb-3">
+                            <label for="editCommandName" class="form-label">Command Name</label>
+                            <input type="text" class="form-control" id="editCommandName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCommandDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editCommandDescription" rows="2" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCommandCategory" class="form-label">Category</label>
+                            <select class="form-control" id="editCommandCategory">
+                                <option value="general">General</option>
+                                <option value="utility">Utility</option>
+                                <option value="fun">Fun</option>
+                                <option value="admin">Admin</option>
+                                <option value="owner">Owner</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editCommandCooldown" class="form-label">Cooldown (ms)</label>
+                            <input type="number" class="form-control" id="editCommandCooldown" min="1000" required>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="editCommandOwnerOnly">
+                            <label class="form-check-label" for="editCommandOwnerOnly">
+                                Owner Only Command
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveCommandChanges()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Toggle command status
+        async function toggleCommand(commandId, isActive) {
+            try {
+                const response = await fetch(`/api/commands/${commandId}/toggle`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ isActive })
+                });
+
+                if (response.ok) {
+                    showNotification(isActive ? 'Command activated' : 'Command deactivated', 'success');
+                    setTimeout(() => refreshCommands(), 1000);
+                } else {
+                    throw new Error('Failed to toggle command');
+                }
+            } catch (error) {
+                console.error('Error toggling command:', error);
+                showNotification('Error toggling command', 'error');
+                // Revert toggle
+                event.target.checked = !isActive;
+            }
+        }
+
+        // Edit command
+        async function editCommand(commandId) {
+            try {
+                const response = await fetch(`/api/commands/${commandId}`);
+                const command = await response.json();
+
+                document.getElementById('editCommandId').value = command._id;
+                document.getElementById('editCommandName').value = command.name;
+                document.getElementById('editCommandDescription').value = command.description;
+                document.getElementById('editCommandCategory').value = command.category;
+                document.getElementById('editCommandCooldown').value = command.cooldown;
+                document.getElementById('editCommandOwnerOnly').checked = command.ownerOnly;
+
+                new bootstrap.Modal(document.getElementById('editCommandModal')).show();
+            } catch (error) {
+                console.error('Error loading command:', error);
+                showNotification('Error loading command details', 'error');
+            }
+        }
+
+        // Save command changes
+        async function saveCommandChanges() {
+            try {
+                const commandId = document.getElementById('editCommandId').value;
+                const formData = {
+                    name: document.getElementById('editCommandName').value,
+                    description: document.getElementById('editCommandDescription').value,
+                    category: document.getElementById('editCommandCategory').value,
+                    cooldown: parseInt(document.getElementById('editCommandCooldown').value),
+                    ownerOnly: document.getElementById('editCommandOwnerOnly').checked
+                };
+
+                const response = await fetch(`/api/commands/${commandId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    bootstrap.Modal.getInstance(document.getElementById('editCommandModal')).hide();
+                    showNotification('Command updated successfully', 'success');
+                    setTimeout(() => refreshCommands(), 1000);
+                } else {
+                    throw new Error('Failed to update command');
+                }
+            } catch (error) {
+                console.error('Error saving command:', error);
+                showNotification('Error saving command changes', 'error');
+            }
+        }
+
+        // Initialize commands
+        async function initializeCommands() {
+            try {
+                const response = await fetch('/api/commands/initialize', {
+                    method: 'POST'
+                });
+
+                if (response.ok) {
+                    showNotification('Commands initialized successfully', 'success');
+                    setTimeout(() => refreshCommands(), 1000);
+                } else {
+                    throw new Error('Failed to initialize commands');
+                }
+            } catch (error) {
+                console.error('Error initializing commands:', error);
+                showNotification('Error initializing commands', 'error');
+            }
+        }
+
+        // Refresh commands
+        function refreshCommands() {
+            window.location.reload();
+        }
+
+        // Show notification
+        function showNotification(message, type) {
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type === 'error' ? 'danger' : type} position-fixed`;
+            toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            toast.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+            `;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

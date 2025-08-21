@@ -1,0 +1,277 @@
+<%- include('../layout/main') %>
+
+<div class="row">
+    <!-- Page Header -->
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1 class="h3 mb-0">Dashboard Overview</h1>
+                <p class="text-muted">Real-time monitoring of SeaBot performance</p>
+            </div>
+            <div class="text-muted">
+                <i class="fas fa-clock"></i>
+                Last updated: <span id="last-update">Now</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <!-- Total Users -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card bg-primary text-white">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">
+                            Total Users
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" id="total-users">
+                            <%= stats.totalUsers %>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="stat-icon bg-white text-primary">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Total Commands -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card bg-success text-white">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">
+                            Total Commands
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" id="total-commands">
+                            <%= stats.totalCommands %>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="stat-icon bg-white text-success">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Users (24h) -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card bg-info text-white">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">
+                            Active Users (24h)
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold" id="active-users">
+                            <%= stats.activeUsers %>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="stat-icon bg-white text-info">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Uptime -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card bg-warning text-white">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">
+                            Uptime
+                        </div>
+                        <div class="h6 mb-0 font-weight-bold" id="uptime">
+                            <%= stats.uptimeFormatted %>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="stat-icon bg-white text-warning">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- System Information -->
+<div class="row mb-4">
+    <!-- Bot Status -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-robot text-primary"></i>
+                    Bot Status
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <strong>Status:</strong>
+                        <span class="badge bg-success ms-2">
+                            <i class="fas fa-check-circle"></i> Online
+                        </span>
+                    </div>
+                    <div class="col-sm-6">
+                        <strong>Node.js:</strong>
+                        <span class="text-muted"><%= stats.nodeVersion %></span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <strong>Memory Usage:</strong>
+                        <div class="text-muted">
+                            <small>RSS: <%= stats.memoryFormatted.rss %></small><br>
+                            <small>Heap Used: <%= stats.memoryFormatted.heapUsed %></small>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <strong>Database:</strong>
+                        <span class="badge bg-success">
+                            <i class="fas fa-database"></i> Connected
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-bolt text-warning"></i>
+                    Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary" onclick="refreshStats()">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh Statistics
+                    </button>
+                    <button class="btn btn-outline-info" onclick="window.location.href='/data'">
+                        <i class="fas fa-users"></i>
+                        View Users
+                    </button>
+                    <button class="btn btn-outline-success" onclick="window.location.href='/command'">
+                        <i class="fas fa-code"></i>
+                        Manage Commands
+                    </button>
+                    <button class="btn btn-outline-secondary" onclick="window.location.href='/config'">
+                        <i class="fas fa-cog"></i>
+                        Configuration
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-line text-success"></i>
+                    System Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6>Memory Details</h6>
+                        <ul class="list-unstyled">
+                            <li><small><strong>RSS:</strong> <%= stats.memoryFormatted.rss %></small></li>
+                            <li><small><strong>Heap Total:</strong> <%= stats.memoryFormatted.heapTotal %></small></li>
+                            <li><small><strong>Heap Used:</strong> <%= stats.memoryFormatted.heapUsed %></small></li>
+                            <li><small><strong>External:</strong> <%= stats.memoryFormatted.external %></small></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Login Session</h6>
+                        <ul class="list-unstyled">
+                            <li><small><strong>Login Time:</strong> <%= new Date(user.loginTime).toLocaleString() %></small></li>
+                            <li><small><strong>Session Active:</strong> <%= Math.floor((Date.now() - new Date(user.loginTime)) / 1000 / 60) %> minutes</small></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h6>Bot Runtime</h6>
+                        <ul class="list-unstyled">
+                            <li><small><strong>Uptime:</strong> <%= stats.uptimeFormatted %></small></li>
+                            <li><small><strong>Platform:</strong> <%= process.platform %></small></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function refreshStats() {
+    const button = event.target;
+    const originalText = button.innerHTML;
+    
+    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
+    button.disabled = true;
+    
+    fetch('/dashboard/api/stats')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update stats
+                document.getElementById('total-users').textContent = data.data.totalUsers;
+                document.getElementById('total-commands').textContent = data.data.totalCommands;
+                document.getElementById('active-users').textContent = data.data.activeUsers;
+                document.getElementById('uptime').textContent = data.data.uptimeFormatted;
+                document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+                
+                // Show success
+                button.innerHTML = '<i class="fas fa-check"></i> Updated!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 2000);
+            } else {
+                throw new Error('Failed to fetch stats');
+            }
+        })
+        .catch(error => {
+            console.error('Error refreshing stats:', error);
+            button.innerHTML = '<i class="fas fa-times"></i> Error';
+            button.classList.add('btn-outline-danger');
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.disabled = false;
+                button.classList.remove('btn-outline-danger');
+            }, 3000);
+        });
+}
+
+// Auto-update timestamp
+setInterval(() => {
+    document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+}, 1000);
+</script>

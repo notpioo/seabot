@@ -1,0 +1,138 @@
+<% layout('simple-layout') -%>
+
+<div class="page-header">
+    <h1><i class="fas fa-bars me-3"></i>Menu Management</h1>
+    <p class="page-description">Configure bot menu response that appears when users type .menu command</p>
+</div>
+
+<div class="content-card">
+    <div class="card-header">
+        <h3>Bot Menu Configuration</h3>
+        <p>Customize the message that will be sent when users use the .menu command</p>
+    </div>
+    <div class="card-body">
+        <form id="menuForm">
+            <div class="form-group">
+                <label for="menuTitle">Menu Title</label>
+                <input type="text" class="form-control" id="menuTitle" name="title" 
+                       value="<%= menu.title || 'Bot Menu' %>" 
+                       placeholder="Enter menu title">
+                <div class="form-text">This will be the main title of your bot menu</div>
+            </div>
+
+            <div class="form-group">
+                <label for="menuDescription">Menu Description</label>
+                <input type="text" class="form-control" id="menuDescription" name="description" 
+                       value="<%= menu.description || 'Welcome to our bot! Here are available features:' %>" 
+                       placeholder="Enter menu description">
+                <div class="form-text">A brief description that appears under the title</div>
+            </div>
+
+            <div class="form-group">
+                <label for="menuContent">Menu Content</label>
+                <textarea class="form-control" id="menuContent" name="content" rows="10" 
+                          placeholder="Enter your menu content here..."><%= menu.content || '' %></textarea>
+                <div class="form-text">The main content of your menu. You can use text formatting and emojis.</div>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap">
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-2"></i>Save Menu
+                </button>
+                <button type="button" class="btn btn-secondary" onclick="resetToDefault()">
+                    <i class="fas fa-undo me-2"></i>Reset to Default
+                </button>
+                <button type="button" class="btn btn-info" onclick="previewMenu()">
+                    <i class="fas fa-eye me-2"></i>Preview
+                </button>
+            </div>
+        </form>
+
+        <!-- Preview Modal -->
+        <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Menu Preview</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="previewContent" style="white-space: pre-wrap; font-family: monospace; background: #f8f9fa; padding: 1rem; border-radius: 5px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.getElementById('menuForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData);
+
+    if (!data.content || data.content.trim() === '') {
+        alert('Menu content is required!');
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/menu', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            alert('Menu updated successfully!');
+        } else {
+            alert('Error: ' + (result.error || 'Failed to update menu'));
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to save menu. Please try again.');
+    }
+});
+
+async function resetToDefault() {
+    if (confirm('Are you sure you want to reset the menu to default? This will overwrite your current settings.')) {
+        try {
+            const response = await fetch('/api/menu/reset', {
+                method: 'POST'
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                location.reload();
+            } else {
+                alert('Error: ' + (result.error || 'Failed to reset menu'));
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Failed to reset menu. Please try again.');
+        }
+    }
+}
+
+function previewMenu() {
+    const title = document.getElementById('menuTitle').value || 'Bot Menu';
+    const description = document.getElementById('menuDescription').value || 'Welcome to our bot! Here are available features:';
+    const content = document.getElementById('menuContent').value || '';
+
+    const previewText = `*${title}*\n\n${description}\n\n${content}`;
+
+    document.getElementById('previewContent').textContent = previewText;
+
+    const modal = new bootstrap.Modal(document.getElementById('previewModal'));
+    modal.show();
+}
+</script>

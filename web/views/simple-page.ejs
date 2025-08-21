@@ -1,0 +1,18 @@
+<% layout('simple-layout') -%>
+
+<div class="page-header">
+    <h1><i class="<%= pageIcon %> me-3"></i><%= pageTitle %></h1>
+    <p class="page-description"><%= pageDescription %></p>
+</div>
+
+<div class="content-card">
+    <div class="card-body">
+        <% if (alertMessage) { %>
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i><%= alertMessage %>
+        </div>
+        <% } %>
+
+        <p class="text-muted">This page is under development. More features will be added soon.</p>
+    </div>
+</div>

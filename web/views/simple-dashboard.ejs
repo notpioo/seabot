@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .navbar-brand {
+            font-weight: bold;
+        }
+        
+        .stat-card {
+            transition: transform 0.2s;
+            border: none;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .main-content {
+            min-height: calc(100vh - 76px);
+        }
+    </style>
+</head>
+<body>
+    <%- include('shared-navbar', { currentPage: 'dashboard' }) %>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container-fluid py-4">
+            <!-- Page Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1 class="h3 mb-0">Dashboard Overview</h1>
+                            <p class="text-muted">Real-time monitoring of SeaBot performance</p>
+                        </div>
+                        <div class="text-muted">
+                            <i class="fas fa-clock"></i>
+                            Last updated: <span id="last-update">Now</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row mb-4">
+                <!-- Total Users -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card stat-card bg-primary text-white">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                        Total Users
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold" id="total-users">
+                                        <%= stats.totalUsers %>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="stat-icon bg-white text-primary">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Commands -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card stat-card bg-success text-white">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                        Total Commands
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold" id="total-commands">
+                                        <%= stats.totalCommands %>
+                                    </div>
+                                    <small class="text-light">Active commands available</small>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="stat-icon bg-white text-success">
+                                        <i class="fas fa-code"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total Used Commands -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card stat-card bg-info text-white">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                        Total Used Commands
+                                    </div>
+                                    <div class="h5 mb-0 font-weight-bold" id="used-commands">
+                                        <%= stats.totalUsedCommands %>
+                                    </div>
+                                    <small class="text-light">Commands executed by users</small>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="stat-icon bg-white text-info">
+                                        <i class="fas fa-terminal"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Uptime -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card stat-card bg-warning text-white">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-uppercase mb-1">
+                                        Uptime
+                                    </div>
+                                    <div class="h6 mb-0 font-weight-bold" id="uptime">
+                                        <%= stats.uptimeFormatted %>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="stat-icon bg-white text-warning">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Information -->
+            <div class="row mb-4">
+                <!-- Bot Status -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-robot text-primary"></i>
+                                Bot Status
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <strong>Status:</strong>
+                                    <span class="badge bg-success ms-2">
+                                        <i class="fas fa-check-circle"></i> Online
+                                    </span>
+                                </div>
+                                <div class="col-sm-6">
+                                    <strong>Node.js:</strong>
+                                    <span class="text-muted"><%= stats.nodeVersion %></span>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <strong>Memory Usage:</strong>
+                                    <div class="text-muted">
+                                        <small>RSS: <%= stats.memoryFormatted.rss %></small><br>
+                                        <small>Heap Used: <%= stats.memoryFormatted.heapUsed %></small>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <strong>Database:</strong>
+                                    <span class="badge bg-success">
+                                        <i class="fas fa-database"></i> Connected
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-bolt text-warning"></i>
+                                Quick Info
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-info" role="alert">
+                                <h6 class="alert-heading">WhatsApp Bot Active!</h6>
+                                <p class="mb-0">Your bot is running and ready to receive commands. Try sending <code>.ping</code> to test it.</p>
+                            </div>
+                            <div class="alert alert-success" role="alert">
+                                <h6 class="alert-heading">Supported Prefixes</h6>
+                                <p class="mb-0">Bot responds to: <code>.</code> <code>!</code> <code>#</code> <code>/</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Details -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0">
+                                <i class="fas fa-info-circle text-success"></i>
+                                System Information
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h6>Memory Details</h6>
+                                    <ul class="list-unstyled">
+                                        <li><small><strong>RSS:</strong> <%= stats.memoryFormatted.rss %></small></li>
+                                        <li><small><strong>Heap Total:</strong> <%= stats.memoryFormatted.heapTotal %></small></li>
+                                        <li><small><strong>Heap Used:</strong> <%= stats.memoryFormatted.heapUsed %></small></li>
+                                        <li><small><strong>External:</strong> <%= stats.memoryFormatted.external %></small></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>Login Session</h6>
+                                    <ul class="list-unstyled">
+                                        <li><small><strong>Login Time:</strong> <%= new Date(user.loginTime).toLocaleString() %></small></li>
+                                        <li><small><strong>Session Active:</strong> <%= Math.floor((Date.now() - new Date(user.loginTime)) / 1000 / 60) %> minutes</small></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>Bot Runtime</h6>
+                                    <ul class="list-unstyled">
+                                        <li><small><strong>Uptime:</strong> <%= stats.uptimeFormatted %></small></li>
+                                        <li><small><strong>Platform:</strong> <%= process.platform %></small></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    // Store server start time
+    const serverStartTime = <%= Date.now() - (process.uptime() * 1000) %>;
+    
+    function formatUptime(uptimeSeconds) {
+        const days = Math.floor(uptimeSeconds / (24 * 3600));
+        const hours = Math.floor((uptimeSeconds % (24 * 3600)) / 3600);
+        const minutes = Math.floor((uptimeSeconds % 3600) / 60);
+        const seconds = Math.floor(uptimeSeconds % 60);
+        
+        return String(days).padStart(2, '0') + ':' + 
+               String(hours).padStart(2, '0') + ':' + 
+               String(minutes).padStart(2, '0') + ':' + 
+               String(seconds).padStart(2, '0');
+    }
+    
+    // Update uptime and timestamp every second
+    setInterval(() => {
+        // Update timestamp
+        document.getElementById('last-update').textContent = new Date().toLocaleTimeString();
+        
+        // Update uptime
+        const currentTime = Date.now();
+        const uptimeSeconds = (currentTime - serverStartTime) / 1000;
+        document.getElementById('uptime').textContent = formatUptime(uptimeSeconds);
+    }, 1000);
+    </script>
+</body>
+</html>

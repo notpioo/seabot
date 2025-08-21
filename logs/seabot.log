@@ -1,0 +1,1032 @@
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T14:44:57.726Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T14:44:57.727Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T14:45:00.122Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T14:45:00.122Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T14:45:00.123Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T14:45:00.180Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:45:00.231Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T14:45:00.232Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T14:45:19.285Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T14:45:19.287Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T14:45:21.628Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T14:45:21.629Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T14:45:21.629Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T14:45:21.685Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:45:21.748Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T14:45:21.749Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:46:20.537Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:46:40.544Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:46:42.246Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:47:00.549Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:47:02.252Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:47:20.554Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:47:22.257Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:47:40.557Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:47:40.557Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:47:42.266Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:47:45.599Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:47:45.866Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:48:02.268Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:48:02.268Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:48:07.311Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:48:07.641Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:48:45.872Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:49:05.877Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:49:07.646Z"}
+{"level":"info","message":"Starting SeaBot with pairing mode for phone: 6285709557572","timestamp":"2025-08-21T14:49:11.266Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T14:49:11.267Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T14:49:13.619Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T14:49:13.620Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T14:49:13.621Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T14:49:13.685Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:49:13.752Z"}
+{"level":"info","message":"SeaBot started successfully with pairing mode","timestamp":"2025-08-21T14:49:13.753Z"}
+{"level":"info","message":"Pairing mode enabled, requesting pairing code...","timestamp":"2025-08-21T14:49:14.290Z"}
+{"level":"info","message":"Pairing code for 6285709557572: 1X6TAC8D","timestamp":"2025-08-21T14:49:16.326Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:49:25.883Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:49:27.654Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:49:45.889Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:49:47.660Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:05.895Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:07.665Z"}
+{"level":"info","message":"Pairing mode enabled, requesting pairing code...","timestamp":"2025-08-21T14:50:14.291Z"}
+{"level":"info","message":"Pairing code for 6285709557572: JH8GJMM8","timestamp":"2025-08-21T14:50:16.323Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:50:25.896Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:50:25.896Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:27.674Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:50:30.938Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:31.549Z"}
+{"level":"info","message":"Pairing mode enabled, requesting pairing code...","timestamp":"2025-08-21T14:50:34.292Z"}
+{"level":"info","message":"Pairing code for 6285709557572: 8CJVMN3X","timestamp":"2025-08-21T14:50:36.327Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:36.329Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:50:47.676Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:50:47.676Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:50:52.725Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:53.032Z"}
+{"level":"info","message":"Pairing mode enabled, requesting pairing code...","timestamp":"2025-08-21T14:50:54.294Z"}
+{"level":"info","message":"Pairing code for 6285709557572: FNZ9WHXW","timestamp":"2025-08-21T14:50:56.325Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:50:56.326Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:51:31.553Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:51:51.559Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:51:53.044Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:52:11.563Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:52:13.048Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:52:31.568Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:52:33.053Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:52:51.571Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:52:53.057Z"}
+{"level":"info","message":"Starting SeaBot with pairing mode for phone: 6283895472636","timestamp":"2025-08-21T14:53:09.360Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T14:53:09.361Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:53:11.572Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:53:11.573Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T14:53:11.799Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T14:53:11.800Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T14:53:11.800Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T14:53:11.862Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:53:11.888Z"}
+{"level":"info","message":"SeaBot started successfully with pairing mode","timestamp":"2025-08-21T14:53:11.888Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:53:13.063Z"}
+{"errorCode":401,"level":"info","message":"Connection closed:","reason":"Logged Out","shouldReconnect":false,"timestamp":"2025-08-21T14:53:16.047Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:53:16.621Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:53:17.026Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:53:33.064Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:53:33.064Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:53:38.106Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:53:38.439Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:54:17.033Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:54:37.038Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:54:38.444Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:54:57.043Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:54:58.450Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:55:17.047Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:55:18.456Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:55:37.054Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:55:38.466Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:55:57.054Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:55:57.054Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:55:58.473Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:56:02.094Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:56:02.494Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:56:18.473Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:56:18.473Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:56:23.515Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:56:23.984Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:57:02.499Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:57:22.506Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:57:23.990Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:57:42.513Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:57:43.996Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:58:02.518Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:58:04.004Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:58:22.525Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:58:24.011Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:58:42.527Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:58:42.527Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:58:44.017Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:58:47.567Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:58:47.974Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T14:59:04.019Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T14:59:04.019Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T14:59:09.059Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:59:09.314Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T14:59:47.992Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:00:07.999Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:00:09.320Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:00:28.008Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:00:29.325Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:00:48.013Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:00:49.330Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:01:08.018Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:01:09.335Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:01:28.019Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:01:28.019Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:01:29.342Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:01:33.061Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:01:33.677Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:01:49.343Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:01:49.343Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:01:54.382Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:01:54.786Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:02:33.683Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:02:53.688Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:02:54.791Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:03:13.693Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:03:14.798Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:03:33.699Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:03:34.803Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:03:53.706Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:03:54.809Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:04:13.706Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:04:13.706Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:04:14.814Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:04:18.746Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:04:19.120Z"}
+{"errorCode":515,"level":"info","message":"Connection closed:","reason":"Restart Required","shouldReconnect":true,"timestamp":"2025-08-21T15:04:19.938Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:04:19.938Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:04:24.980Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:04:27.374Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:04:58.622Z"}
+{"kind":"Number","level":"error","message":"Failed to update user: Cast to Number failed for value \"{ '$inc': 1 }\" (type Object) at path \"messageCount\"","path":"messageCount","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stack":"CastError: Cast to Number failed for value \"{ '$inc': 1 }\" (type Object) at path \"messageCount\"\n    at SchemaNumber.cast (/home/runner/workspace/node_modules/mongoose/lib/schema/number.js:381:11)\n    at SchemaType.applySetters (/home/runner/workspace/node_modules/mongoose/lib/schemaType.js:1258:12)\n    at SchemaNumber.castForQuery (/home/runner/workspace/node_modules/mongoose/lib/schema/number.js:450:16)\n    at castUpdateVal (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:628:19)\n    at walkUpdatePath (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:333:22)\n    at castUpdate (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:144:7)\n    at model.Query._castUpdate (/home/runner/workspace/node_modules/mongoose/lib/query.js:4874:10)\n    at model.Query._findOneAndUpdate (/home/runner/workspace/node_modules/mongoose/lib/query.js:3497:23)\n    at model.Query.exec (/home/runner/workspace/node_modules/mongoose/lib/query.js:4627:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","stringValue":"\"{ '$inc': 1 }\"","timestamp":"2025-08-21T15:04:58.636Z","value":{"$inc":1},"valueType":"Object"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:05:19.125Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:05:39.130Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:05:59.134Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:06:19.139Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:06:39.145Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:06:59.147Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:06:59.147Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:07:04.189Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:07:04.417Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:07:22.513Z"}
+{"kind":"Number","level":"error","message":"Failed to update user: Cast to Number failed for value \"{ '$inc': 1 }\" (type Object) at path \"messageCount\"","path":"messageCount","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stack":"CastError: Cast to Number failed for value \"{ '$inc': 1 }\" (type Object) at path \"messageCount\"\n    at SchemaNumber.cast (/home/runner/workspace/node_modules/mongoose/lib/schema/number.js:381:11)\n    at SchemaType.applySetters (/home/runner/workspace/node_modules/mongoose/lib/schemaType.js:1258:12)\n    at SchemaNumber.castForQuery (/home/runner/workspace/node_modules/mongoose/lib/schema/number.js:450:16)\n    at castUpdateVal (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:628:19)\n    at walkUpdatePath (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:333:22)\n    at castUpdate (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:144:7)\n    at model.Query._castUpdate (/home/runner/workspace/node_modules/mongoose/lib/query.js:4874:10)\n    at model.Query._findOneAndUpdate (/home/runner/workspace/node_modules/mongoose/lib/query.js:3497:23)\n    at model.Query.exec (/home/runner/workspace/node_modules/mongoose/lib/query.js:4627:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","stringValue":"\"{ '$inc': 1 }\"","timestamp":"2025-08-21T15:07:22.514Z","value":{"$inc":1},"valueType":"Object"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:07:26.233Z"}
+{"kind":"Number","level":"error","message":"Failed to update user: Cast to Number failed for value \"{ '$inc': 1 }\" (type Object) at path \"messageCount\"","path":"messageCount","reason":{"actual":false,"code":"ERR_ASSERTION","expected":true,"generatedMessage":true,"operator":"=="},"stack":"CastError: Cast to Number failed for value \"{ '$inc': 1 }\" (type Object) at path \"messageCount\"\n    at SchemaNumber.cast (/home/runner/workspace/node_modules/mongoose/lib/schema/number.js:381:11)\n    at SchemaType.applySetters (/home/runner/workspace/node_modules/mongoose/lib/schemaType.js:1258:12)\n    at SchemaNumber.castForQuery (/home/runner/workspace/node_modules/mongoose/lib/schema/number.js:450:16)\n    at castUpdateVal (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:628:19)\n    at walkUpdatePath (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:333:22)\n    at castUpdate (/home/runner/workspace/node_modules/mongoose/lib/helpers/query/castUpdate.js:144:7)\n    at model.Query._castUpdate (/home/runner/workspace/node_modules/mongoose/lib/query.js:4874:10)\n    at model.Query._findOneAndUpdate (/home/runner/workspace/node_modules/mongoose/lib/query.js:3497:23)\n    at model.Query.exec (/home/runner/workspace/node_modules/mongoose/lib/query.js:4627:80)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","stringValue":"\"{ '$inc': 1 }\"","timestamp":"2025-08-21T15:07:26.234Z","value":{"$inc":1},"valueType":"Object"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:08:04.422Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:08:24.427Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:08:44.434Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:09:04.439Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:09:24.445Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:09:44.447Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:09:44.447Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:09:49.486Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:09:50.177Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:10:50.183Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:11:10.188Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:11:30.192Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:11:50.198Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:12:10.206Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:12:30.206Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:12:30.206Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:12:35.248Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:12:35.443Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:13:35.448Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:13:55.452Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:14:15.459Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:14:35.464Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:14:55.470Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:15:15.472Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:15:15.472Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:15:20.512Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:15:21.104Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:16:21.110Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:16:41.115Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:17:01.122Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:17:21.130Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:17:41.135Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:18:01.136Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:18:01.136Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:18:06.177Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:18:06.687Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:19:06.694Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:19:26.701Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:19:46.706Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:20:06.712Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:20:26.718Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:20:46.719Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:20:46.720Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:20:51.758Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:20:51.994Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:21:52.000Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:22:12.006Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:22:32.010Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:22:52.016Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:23:12.023Z"}
+{"errorCode":408,"level":"info","message":"Connection closed:","reason":"Timed Out","shouldReconnect":true,"timestamp":"2025-08-21T15:23:32.023Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:23:32.023Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:23:37.063Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:23:37.646Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:23:54.107Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:23:54.390Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:23:56.875Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:23:56.876Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:23:57.276Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:23:57.277Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:23:59.263Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:23:59.263Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:23:59.264Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:23:59.318Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:23:59.346Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:23:59.346Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:23:59.691Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:23:59.691Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:23:59.692Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:23:59.751Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:23:59.777Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:23:59.777Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:00.144Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:00.280Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:00.280Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:00.809Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:05.322Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:05.620Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:05.621Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:05.626Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:10.665Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:11.277Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:11.278Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:11.603Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:16.319Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:16.956Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:16.956Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:17.464Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:22.001Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:22.606Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:22.607Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:22.936Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:27.650Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:28.028Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:28.028Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:28.065Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:33.067Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:33.329Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:33.329Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:33.436Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:38.368Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:38.871Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:38.871Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:39.307Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:43.912Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:44.537Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:44.537Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:44.640Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:49.576Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:50.190Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:50.190Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:50.674Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:24:55.232Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:24:55.700Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:24:55.701Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:24:56.003Z"}
+{"level":"warn","message":"Failed to send startup message to owner:","timestamp":"2025-08-21T15:25:00.168Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:00.743Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:01.349Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:01.350Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:01.474Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:06.392Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:06.940Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:06.940Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:07.228Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:11.979Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:12.300Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:12.300Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:12.301Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:17.341Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:17.560Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:17.560Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:17.679Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:22.601Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:23.399Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:23.399Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:23.804Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:28.442Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:28.751Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:28.751Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:28.772Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:33.800Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:34.325Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:34.325Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:34.517Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:39.367Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:39.707Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:39.708Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:39.776Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:44.753Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:45.152Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:45.153Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:45.351Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:50.193Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:50.468Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:50.469Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:50.538Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:25:55.510Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:25:56.077Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:25:56.077Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:25:56.636Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:01.117Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:01.542Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:01.542Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:01.542Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:06.582Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:07.030Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:07.030Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:07.344Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:12.071Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:12.459Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:12.459Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:12.527Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:17.503Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:17.795Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:17.795Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:17.887Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:22.835Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:23.349Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:23.349Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:23.547Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:28.388Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:28.647Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:28.647Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:28.688Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:33.687Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:34.016Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:34.017Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:34.119Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:39.058Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:39.562Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:39.562Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:39.883Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:44.601Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:45.087Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:45.087Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:45.643Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:50.135Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:50.576Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:50.577Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:51.066Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:26:55.617Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:26:56.098Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:26:56.099Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:26:56.160Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:01.138Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:01.388Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:01.389Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:01.449Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:06.427Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:06.828Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:06.828Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:07.023Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:11.867Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:12.206Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:12.207Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:12.320Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:17.249Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:17.591Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:17.591Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:17.684Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:22.630Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:23.076Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:23.076Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:23.487Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:28.115Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:28.551Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:28.551Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:29.062Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:33.590Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:34.167Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:34.168Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:34.711Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:39.210Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:39.520Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:39.521Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:39.523Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:44.561Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:44.771Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:44.771Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:44.876Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:49.811Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:50.133Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:50.133Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:50.263Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:27:55.175Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:27:55.881Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:27:55.881Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:27:56.305Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:00.919Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:01.327Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:01.327Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:01.376Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:06.366Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:06.695Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:06.695Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:06.786Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:11.733Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:12.144Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:12.144Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:12.342Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:17.183Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:17.519Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:17.519Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:17.628Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:22.558Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:22.793Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:22.793Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:22.856Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:28:27.534Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:28:27.792Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:28:29.537Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:28:29.538Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:28:29.819Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:28:29.821Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:28:31.946Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:28:31.947Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:28:31.947Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:28:32.006Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:32.033Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:28:32.033Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:28:32.262Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:28:32.263Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:28:32.263Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:28:32.318Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:32.344Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:28:32.345Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:32.455Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:32.941Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:32.941Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:33.328Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:37.989Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:38.712Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:38.713Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:39.133Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:43.753Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:44.438Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:44.438Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:44.901Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:49.480Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:49.927Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:49.927Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:50.250Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:28:54.969Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:28:55.323Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:28:55.323Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:28:55.353Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:00.364Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:00.609Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:00.609Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:00.696Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:05.652Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:05.922Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:05.922Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:06.019Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:10.968Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:11.426Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:11.426Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:11.858Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:16.468Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:17.039Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:17.039Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:17.434Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:22.082Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:22.575Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:22.576Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:22.600Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:27.618Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:27.845Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:27.846Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:27.908Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:32.894Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:33.214Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:33.214Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:33.355Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:38.258Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:39.116Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:39.117Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:39.667Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:44.159Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:44.667Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:44.667Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:45.108Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:49.712Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:50.116Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:50.116Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:50.167Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:29:55.177Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:29:55.421Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:29:55.421Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:29:55.494Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:29:59.405Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:29:59.407Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:00.468Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:00.700Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:00.700Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:00.785Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:30:01.817Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:05.749Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:06.079Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:06.079Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:06.217Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:11.124Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:11.643Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:11.643Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:11.840Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:16.703Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:17.573Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:17.573Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:17.919Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:22.620Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:23.132Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:23.132Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:23.645Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:28.177Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:28.969Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:28.969Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:29.368Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:34.015Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:34.584Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:34.585Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:34.993Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:39.629Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:40.150Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:40.150Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:40.654Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:45.199Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:45.802Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:45.802Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:45.917Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:50.856Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:51.249Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:51.250Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:51.324Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:30:56.293Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:30:56.794Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:30:56.794Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:30:57.315Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:31:01.840Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:31:02.687Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:31:02.687Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:31:03.097Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:31:07.513Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:31:07.737Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:31:07.787Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:31:10.174Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:31:10.176Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:31:12.616Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:31:12.942Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:31:12.943Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:31:12.984Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:31:12.985Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:31:15.371Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:31:15.510Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:31:54.222Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:31:54.223Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:31:56.589Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:31:56.590Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:31:56.590Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:31:56.662Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:31:56.695Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:31:56.697Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:31:57.318Z"}
+{"level":"info","message":"Starting Web Dashboard Server...","timestamp":"2025-08-21T15:32:08.782Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:32:08.783Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:32:11.235Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T15:32:42.208Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:32:42.209Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:32:44.727Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:32:44.728Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T15:32:44.734Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T15:32:44.737Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T15:36:36.744Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T15:36:37.722Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:36:37.724Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:36:40.136Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:36:40.136Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T15:36:40.144Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T15:36:40.147Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T15:46:32.101Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T15:46:32.693Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:46:32.699Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:46:35.030Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:46:35.030Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T15:46:35.037Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T15:46:35.040Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:47:28.334Z"}
+{"level":"info","message":"Command received: ling from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:50:39.979Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:50:44.489Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:52:12.273Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T15:52:12.792Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T15:52:13.451Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:52:13.452Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:52:14.923Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:52:14.925Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:52:14.936Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:52:14.937Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:52:15.807Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:52:15.808Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T15:52:15.814Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T15:52:15.816Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:52:17.286Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:52:17.286Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:52:17.286Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:52:17.346Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:52:17.365Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:17.371Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:52:17.372Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:52:17.366Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:52:17.366Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:52:17.423Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:17.447Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:52:17.448Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:18.038Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:18.039Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:18.599Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T15:52:20.296Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T15:52:20.744Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:52:20.745Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:52:23.055Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:52:23.056Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T15:52:23.062Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T15:52:23.066Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:23.088Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:23.666Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:23.666Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:24.209Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:28.708Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:29.139Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:29.139Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:29.168Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:34.183Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:34.407Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:34.408Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:34.468Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:39.448Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:39.933Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:39.934Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:40.471Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:44.974Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:45.260Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:45.260Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:45.279Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:50.301Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:50.623Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:50.623Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:50.720Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:52:55.666Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:52:56.280Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:52:56.280Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:52:56.746Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:01.319Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:01.650Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:01.650Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:01.686Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:06.690Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:07.264Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:07.264Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:07.789Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:12.302Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:13.085Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:13.085Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:13.650Z"}
+{"date":"Thu Aug 21 2025 15:53:17 GMT+0000 (Coordinated Universal Time)","error":{"data":{"stack":"Error\n    at promiseTimeout (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Utils/generics.js:146:19)\n    at waitForMessage (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:120:61)\n    at query (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:144:13)\n    at getAvailablePreKeysOnServer (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:184:30)\n    at uploadPreKeysToServerIfRequired (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:210:35)\n    at WebSocketClient.<anonymous> (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:514:15)\n    at WebSocketClient.emit (node:events:524:28)\n    at /home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Socket/socket.js:241:35\n    at Object.decodeFrame (/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Utils/noise-handler.js:144:17)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"},"isBoom":true,"isServer":false,"output":{"headers":{},"payload":{"error":"Request Time-out","message":"Timed Out","statusCode":408},"statusCode":408}},"level":"error","message":"unhandledRejection: Timed Out\nError: Timed Out\n    at /home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Utils/generics.js:151:32","os":{"loadavg":[2.2,4,5.94],"uptime":54903.78},"process":{"argv":["/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/bin/node","/home/runner/workspace/index.js"],"cwd":"/home/runner/workspace","execPath":"/nix/store/lz7iav1hd92jbv44zf2rdd7b2mj23536-nodejs-20.19.3/bin/node","gid":1000,"memoryUsage":{"arrayBuffers":18541904,"external":21966687,"heapTotal":41885696,"heapUsed":40114840,"rss":113815552},"pid":4790,"uid":1000,"version":"v20.19.3"},"rejection":true,"stack":"Error: Timed Out\n    at /home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Utils/generics.js:151:32","timestamp":"2025-08-21T15:53:17.779Z","trace":[{"column":32,"file":"/home/runner/workspace/node_modules/@whiskeysockets/baileys/lib/Utils/generics.js","function":null,"line":151,"method":null,"native":false}]}
+{"level":"error","message":"Unhandled Rejection at:","timestamp":"2025-08-21T15:53:17.779Z"}
+{"level":"error","message":"Unhandled Rejection at:","timestamp":"2025-08-21T15:53:17.779Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:18.543Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:18.544Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:23.582Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:24.759Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:29.753Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:29.753Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:34.793Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:35.622Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:40.894Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:40.894Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:45.939Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:46.971Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:53:51.808Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:53:51.808Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:53:56.848Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:53:57.151Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:54:00.291Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T15:54:00.786Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:54:02.409Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:54:02.409Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:54:07.448Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:54:07.740Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:54:12.980Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:54:12.980Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:54:18.020Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:54:19.212Z"}
+{"errorCode":440,"level":"info","message":"Connection closed:","reason":"Connection Replaced","shouldReconnect":true,"timestamp":"2025-08-21T15:54:24.028Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:54:24.028Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:54:29.068Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:54:29.490Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:54:30.113Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:54:40.244Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:54:40.245Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:54:42.594Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:54:42.594Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:54:42.595Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:54:42.656Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:54:42.709Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:54:42.709Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T15:55:03.976Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T15:55:04.422Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:55:04.423Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:55:06.741Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:55:06.742Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T15:55:06.747Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T15:55:06.749Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T15:55:06.864Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T15:55:07.510Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T15:55:07.512Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T15:55:09.815Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T15:55:09.816Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T15:55:09.816Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T15:55:09.873Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:55:09.916Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T15:55:09.917Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:56:30.296Z"}
+{"level":"warn","message":"Max QR retries reached, you may need to restart the bot","timestamp":"2025-08-21T15:56:50.308Z"}
+{"errorCode":515,"level":"info","message":"Connection closed:","reason":"Restart Required","shouldReconnect":true,"timestamp":"2025-08-21T15:57:07.639Z"}
+{"level":"info","message":"Attempting to reconnect...","timestamp":"2025-08-21T15:57:07.640Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T15:57:12.683Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T15:57:13.560Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T15:57:17.655Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T15:57:18.178Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:02:25.406Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:02:26.141Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:02:26.142Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:02:28.606Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:02:28.607Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:02:28.613Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:02:28.616Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:02:28.714Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:02:29.706Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:02:29.707Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:02:32.116Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:02:32.117Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:02:32.117Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:02:32.180Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:02:32.210Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:02:32.211Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:02:32.658Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:02:51.931Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:02:52.795Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:02:52.796Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:02:55.199Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:02:55.200Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:02:55.207Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:02:55.211Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:02:55.381Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:02:56.346Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:02:56.347Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:02:58.721Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:02:58.722Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:02:59.218Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:02:59.279Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:02:59.311Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:02:59.312Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:03:00.141Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:04:46.151Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:04:47.340Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:04:57.503Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:05:51.715Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:05:52.913Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:06:04.083Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:06:05.342Z"}
+{"level":"info","message":"Command received: ping5 from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:06:06.748Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:11:34.251Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:11:34.251Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:11:35.620Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:11:35.621Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:11:36.018Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:11:36.019Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:11:38.142Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:11:38.142Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:11:38.149Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:11:38.152Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:11:38.422Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:11:38.422Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:11:38.907Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:11:38.961Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:11:38.987Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:11:38.987Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:11:39.329Z"}
+{"level":"info","message":"Command received: ping5 from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:12:31.156Z"}
+{"level":"info","message":"Command received: ping5 from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:12:50.336Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:13:52.199Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:13:53.359Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:13:54.611Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:13:58.447Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:14:21.266Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:14:21.267Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:14:22.703Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:14:22.704Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:14:23.033Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:14:23.034Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:14:25.148Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:14:25.149Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:14:25.154Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:14:25.156Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:14:25.596Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:14:25.596Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:14:26.086Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:14:26.138Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:14:26.164Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:14:26.165Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:14:26.898Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:15:48.613Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:15:49.830Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:15:54.551Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:15:55.758Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:15:57.039Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:16:12.902Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:16:12.902Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:16:14.495Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:16:14.496Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:16:14.895Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:16:14.896Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:16:16.969Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:16:16.970Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:16:16.975Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:16:16.978Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:16:17.296Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:16:17.297Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:16:17.783Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:16:17.835Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:16:17.860Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:16:17.860Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:16:18.336Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:16:48.489Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:16:49.673Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:16:51.607Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:19:20.078Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:19:20.081Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:19:22.524Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:19:22.525Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:19:22.860Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:19:22.861Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:19:24.917Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:19:24.918Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:19:24.924Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:19:24.926Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:19:25.456Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:19:25.457Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:19:25.986Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:19:26.014Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:19:26.014Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:19:26.388Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:19:27.203Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:22:02.737Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:22:04.223Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:22:24.755Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:22:26.233Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:22:27.380Z"}
+{"level":"info","message":"Database commands changed, reloading...","timestamp":"2025-08-21T16:22:28.170Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:22:28.397Z"}
+{"level":"info","message":"Commands reloaded successfully","timestamp":"2025-08-21T16:22:28.398Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:25:09.781Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:25:09.782Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:25:11.953Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:25:11.954Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:25:12.305Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:25:12.305Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:25:14.466Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:25:14.466Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:25:14.472Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:25:14.475Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:25:14.736Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:25:14.736Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:25:15.272Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:25:15.296Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:25:15.297Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:25:15.675Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:25:16.026Z"}
+{"level":"info","message":"Database commands changed, reloading...","timestamp":"2025-08-21T16:25:16.364Z"}
+{"level":"info","message":"Loaded 1 commands","timestamp":"2025-08-21T16:25:16.587Z"}
+{"level":"info","message":"Commands reloaded successfully","timestamp":"2025-08-21T16:25:16.587Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:31:02.947Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:31:02.951Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:31:04.614Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:31:04.618Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:31:05.103Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:31:05.105Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:31:07.049Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:31:07.495Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:31:09.129Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:31:09.148Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:31:09.156Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:31:09.164Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:31:09.636Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:31:09.672Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:31:09.673Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:31:09.810Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:31:10.519Z"}
+{"level":"info","message":"Command received: menu from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:31:32.095Z"}
+{"level":"info","message":"Command executed: menu by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:31:33.778Z"}
+{"level":"info","message":"Database commands changed, reloading...","timestamp":"2025-08-21T16:31:34.204Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:31:34.441Z"}
+{"level":"info","message":"Commands reloaded successfully","timestamp":"2025-08-21T16:31:34.442Z"}
+{"level":"info","message":"Command received: ping from 6285709557572@s.whatsapp.net in private","timestamp":"2025-08-21T16:31:35.083Z"}
+{"level":"info","message":"Command executed: ping by 6285709557572@s.whatsapp.net","timestamp":"2025-08-21T16:31:36.507Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:37:17.878Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:37:17.878Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:37:19.200Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:37:19.201Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:37:19.520Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:37:19.522Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:37:21.740Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:37:21.880Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:37:23.263Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:37:23.756Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:37:23.760Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:37:23.762Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:37:23.764Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:37:23.785Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:37:23.785Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:37:23.931Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:37:24.583Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:39:36.995Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:39:36.997Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:39:38.526Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:39:38.527Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:39:38.902Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:39:38.903Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:39:41.021Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:39:41.348Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:39:42.776Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:39:43.070Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:39:43.076Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:39:43.078Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:39:43.316Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:39:43.342Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:39:43.343Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:39:43.480Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:39:43.809Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:42:07.305Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:42:07.305Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:42:08.794Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:42:08.795Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:42:09.117Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:42:09.119Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:42:11.264Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:42:11.529Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:42:12.947Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:42:13.316Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:42:13.322Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:42:13.324Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:42:13.479Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:42:13.511Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:42:13.511Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:42:13.658Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:42:13.848Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:43:44.467Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:43:44.467Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:43:46.020Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:43:46.027Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:43:46.554Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:43:46.555Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:43:48.463Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:43:49.049Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:43:50.463Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:43:50.499Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:43:50.506Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:43:50.509Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:43:50.985Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:43:51.023Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:43:51.023Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:43:51.160Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:43:51.883Z"}
+{"level":"info","message":"Received SIGTERM, shutting down gracefully...","timestamp":"2025-08-21T16:46:24.196Z"}
+{"level":"info","message":"Received SIGTERM, shutting down web server gracefully...","timestamp":"2025-08-21T16:46:24.197Z"}
+{"level":"info","message":"Starting Simple Web Dashboard Server...","timestamp":"2025-08-21T16:46:26.194Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:46:26.196Z"}
+{"level":"info","message":"Starting SeaBot...","timestamp":"2025-08-21T16:46:26.515Z"}
+{"level":"info","message":"Connecting to MongoDB...","timestamp":"2025-08-21T16:46:26.517Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:46:28.612Z"}
+{"level":"info","message":"Connected to MongoDB database: seabot","timestamp":"2025-08-21T16:46:28.892Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:46:30.316Z"}
+{"level":"info","message":"Connected to MongoDB successfully","timestamp":"2025-08-21T16:46:30.756Z"}
+{"level":"info","message":"Simple Web Dashboard Server started successfully","timestamp":"2025-08-21T16:46:30.765Z"}
+{"level":"info","message":"Simple Web dashboard running on http://0.0.0.0:5000","timestamp":"2025-08-21T16:46:30.769Z"}
+{"level":"info","message":"Using Baileys version: 2,3000,1023223821, Latest: true","timestamp":"2025-08-21T16:46:30.835Z"}
+{"level":"info","message":"WhatsApp socket created successfully","timestamp":"2025-08-21T16:46:30.867Z"}
+{"level":"info","message":"SeaBot started successfully","timestamp":"2025-08-21T16:46:30.868Z"}
+{"level":"info","message":"Loaded 2 commands","timestamp":"2025-08-21T16:46:31.018Z"}
+{"level":"info","message":"Connected to WhatsApp successfully!","timestamp":"2025-08-21T16:46:32.085Z"}
