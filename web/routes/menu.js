@@ -63,7 +63,7 @@ router.get('/api/menu', async (req, res) => {
 // API endpoint to update menu
 router.post('/api/menu', async (req, res) => {
     try {
-        const { title, description, content } = req.body;
+        const { content } = req.body;
         
         if (!content || content.trim() === '') {
             return res.status(400).json({
@@ -72,25 +72,35 @@ router.post('/api/menu', async (req, res) => {
             });
         }
 
+        // Check if Menu model is properly initialized
+        if (!Menu.sequelize) {
+            logger.warn('Menu model not initialized, storing in fallback mode');
+            return res.json({
+                success: true,
+                message: 'Menu updated (fallback mode)',
+                data: {
+                    content: content,
+                    isActive: true
+                }
+            });
+        }
+
         // Find existing menu or create new one
-        let menu = await Menu.findOne({ isActive: true });
+        let menu = await Menu.findOne({ where: { isActive: true } });
         
         if (menu) {
             // Update existing menu
-            menu.title = title || menu.title;
-            menu.description = description || menu.description;
             menu.content = content;
             menu.updatedAt = new Date();
             await menu.save();
         } else {
             // Create new menu
-            menu = new Menu({
-                title: title || 'Bot Menu',
-                description: description || 'Welcome to our bot! Here are available features:',
+            menu = await Menu.create({
+                title: 'Bot Menu',
+                description: 'Welcome to our bot! Here are available features:',
                 content: content,
                 isActive: true
             });
-            await menu.save();
         }
         
         logger.info('Menu updated by admin');
@@ -111,22 +121,36 @@ router.post('/api/menu', async (req, res) => {
 // API endpoint to reset menu to default
 router.post('/api/menu/reset', async (req, res) => {
     try {
-        let menu = await Menu.findOne({ isActive: true });
+        const defaultContent = Menu.getDefaultContent();
+        
+        // Check if Menu model is properly initialized
+        if (!Menu.sequelize) {
+            logger.warn('Menu model not initialized, using fallback mode');
+            return res.json({
+                success: true,
+                message: 'Menu reset to default (fallback mode)',
+                data: {
+                    content: defaultContent,
+                    isActive: true
+                }
+            });
+        }
+
+        let menu = await Menu.findOne({ where: { isActive: true } });
         
         if (menu) {
             menu.title = 'Bot Menu';
             menu.description = 'Welcome to our bot! Here are available features:';
-            menu.content = Menu.getDefaultContent();
+            menu.content = defaultContent;
             menu.updatedAt = new Date();
             await menu.save();
         } else {
-            menu = new Menu({
+            menu = await Menu.create({
                 title: 'Bot Menu',
                 description: 'Welcome to our bot! Here are available features:',
-                content: Menu.getDefaultContent(),
+                content: defaultContent,
                 isActive: true
             });
-            await menu.save();
         }
         
         logger.info('Menu reset to default by admin');

@@ -1,61 +1,27 @@
 
-const mongoose = require('mongoose');
+const { DataTypes, Model } = require('sequelize');
 
-const menuSchema = new mongoose.Schema({
-    title: {
-        type: String,
-        required: true,
-        default: 'Bot Menu'
-    },
-    description: {
-        type: String,
-        default: 'Welcome to our bot! Here are available features:'
-    },
-    content: {
-        type: String,
-        required: true,
-        default: `🤖 *Bot Menu*
-
-📋 *Available Commands:*
-• .ping - Check bot status
-• .menu - Show this menu
-
-⚙️ *Bot Info:*
-• Version: 1.0.0
-• Status: Online
-
-Thank you for using our bot! 🙏`
-    },
-    isActive: {
-        type: Boolean,
-        default: true
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now
+class Menu extends Model {
+    // Static method to get menu content
+    static async getMenuContent() {
+        try {
+            // Check if model is properly initialized
+            if (!this.sequelize) {
+                console.warn('Menu model not initialized, using default content');
+                return this.getDefaultContent();
+            }
+            
+            const menu = await this.findOne({ where: { isActive: true } });
+            return menu ? menu.content : this.getDefaultContent();
+        } catch (error) {
+            console.error('Error getting menu content:', error);
+            return this.getDefaultContent();
+        }
     }
-}, {
-    timestamps: true
-});
 
-// Static method to get menu content
-menuSchema.statics.getMenuContent = async function() {
-    try {
-        const menu = await this.findOne({ isActive: true });
-        return menu ? menu.content : this.getDefaultContent();
-    } catch (error) {
-        console.error('Error getting menu content:', error);
-        return this.getDefaultContent();
-    }
-};
-
-// Static method for default content
-menuSchema.statics.getDefaultContent = function() {
-    return `🤖 *Bot Menu*
+    // Static method for default content
+    static getDefaultContent() {
+        return `🤖 *Bot Menu*
 
 📋 *Available Commands:*
 • .ping - Check bot status
@@ -66,23 +32,84 @@ menuSchema.statics.getDefaultContent = function() {
 • Status: Online
 
 Thank you for using our bot! 🙏`;
-};
-
-// Static method to initialize default menu
-menuSchema.statics.initializeMenu = async function() {
-    try {
-        const existingMenu = await this.findOne({});
-        if (!existingMenu) {
-            await this.create({
-                title: 'Bot Menu',
-                description: 'Welcome to our bot! Here are available features:',
-                content: this.getDefaultContent()
-            });
-            console.log('Default menu initialized successfully');
-        }
-    } catch (error) {
-        console.error('Error initializing menu:', error);
     }
+
+    // Static method to initialize default menu
+    static async initializeMenu() {
+        try {
+            if (!this.sequelize) {
+                console.warn('Menu model not initialized, skipping menu initialization');
+                return;
+            }
+            
+            const existingMenu = await this.findOne();
+            if (!existingMenu) {
+                await this.create({
+                    title: 'Bot Menu',
+                    description: 'Welcome to our bot! Here are available features:',
+                    content: this.getDefaultContent(),
+                    isActive: true
+                });
+                console.log('Default menu initialized successfully');
+            }
+        } catch (error) {
+            console.error('Error initializing menu:', error);
+        }
+    }
+}
+
+// Initialize the model when database connection is established
+const initializeMenuModel = (sequelize) => {
+    if (sequelize && !Menu.sequelize) {
+        Menu.init({
+            id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
+            title: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                defaultValue: 'Bot Menu'
+            },
+            description: {
+                type: DataTypes.TEXT,
+                defaultValue: 'Welcome to our bot! Here are available features:'
+            },
+            content: {
+                type: DataTypes.TEXT,
+                allowNull: false,
+                defaultValue: Menu.getDefaultContent()
+            },
+            isActive: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: true
+            }
+        }, {
+            sequelize,
+            modelName: 'Menu',
+            tableName: 'menus',
+            timestamps: true
+        });
+        
+        console.log('Menu model initialized successfully');
+    }
+    return Menu;
 };
 
-module.exports = mongoose.model('Menu', menuSchema);
+// Try to initialize immediately if connection is available
+try {
+    const connection = require('../connection');
+    if (connection && connection.getSequelize) {
+        const sequelize = connection.getSequelize();
+        if (sequelize) {
+            initializeMenuModel(sequelize);
+        }
+    }
+} catch (error) {
+    console.warn('Menu model will be initialized when database connection is established');
+}
+
+// Export both the model and initializer
+Menu.initializeMenuModel = initializeMenuModel;
+module.exports = Menu;

@@ -13,26 +13,38 @@ module.exports = {
         const { reply } = context;
         
         try {
-            // Get menu content from database
-            const menuContent = await Menu.getMenuContent();
+            let menuContent = null;
             
-            await reply(menuContent);
+            // Try to get menu content from database
+            if (Menu && Menu.sequelize && typeof Menu.getMenuContent === 'function') {
+                try {
+                    menuContent = await Menu.getMenuContent();
+                    console.log('Menu content retrieved from database');
+                } catch (dbError) {
+                    console.warn('Database menu retrieval failed:', dbError.message);
+                }
+            } else {
+                console.warn('Menu model not properly initialized, using fallback');
+            }
+            
+            // Use database content if available, otherwise use default
+            const finalMenu = menuContent || Menu.getDefaultContent();
+            
+            await reply(finalMenu);
             
         } catch (error) {
             console.error('Error in menu command:', error);
             
-            // Fallback to default menu if error occurs
-            const fallbackMenu = `🤖 *Bot Menu*
+            // Ultimate fallback
+            const fallbackMenu = `🤖 *SeaBot Menu*
 
 📋 *Available Commands:*
 • .ping - Check bot status
 • .menu - Show this menu
 
-⚙️ *Bot Info:*
-• Version: ${config.bot.version}
-• Status: Online
+⚙️ *Bot Status:* Online ✅
 
-Thank you for using our bot! 🙏`;
+Thank you for using SeaBot! 🙏`;
             
             await reply(fallbackMenu);
         }

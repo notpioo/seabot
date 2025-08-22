@@ -1,10 +1,10 @@
-const mongoose = require('mongoose');
+const { Sequelize } = require('sequelize');
 const config = require('../../config/config');
 const logger = require('../utils/logger');
-const Menu = require('./models/Menu'); // Assuming Menu model is in ./models/Menu
 
 class DatabaseConnection {
     constructor() {
+        this.sequelize = null;
         this.isConnected = false;
         this.connectionRetries = 0;
         this.maxRetries = 5;
@@ -13,35 +13,34 @@ class DatabaseConnection {
     async connect() {
         try {
             if (this.isConnected) {
-                logger.info('Already connected to MongoDB');
+                logger.info('Already connected to PostgreSQL');
                 return;
             }
 
-            logger.info('Connecting to MongoDB...');
+            logger.info('Connecting to PostgreSQL...');
 
-            await mongoose.connect(config.database.uri, {
-                ...config.database.options,
-                dbName: config.database.name
-            });
+            this.sequelize = new Sequelize(config.database.uri, config.database.options);
+
+            // Test the connection
+            await this.sequelize.authenticate();
 
             this.isConnected = true;
             this.connectionRetries = 0;
 
-            logger.info(`Connected to MongoDB database: ${config.database.name}`);
+            logger.info(`Connected to PostgreSQL database: ${config.database.name}`);
 
-            // Initialize default commands
-            const Command = require('./models/Command');
-            await Command.initializeCommands();
+            // Initialize models
+            await this.initializeModels();
 
-            // Initialize default menu
-            await Menu.initializeMenu();
+            // Sync database (create tables if they don't exist)
+            await this.sequelize.sync();
 
-            // Set up connection event handlers
-            this.setupEventHandlers();
+            // Initialize default data
+            await this.initializeDefaultData();
 
         } catch (error) {
             this.connectionRetries++;
-            logger.error(`Failed to connect to MongoDB (attempt ${this.connectionRetries}/${this.maxRetries}):`, error.message);
+            logger.error(`Failed to connect to PostgreSQL (attempt ${this.connectionRetries}/${this.maxRetries}):`, error.message);
 
             if (this.connectionRetries < this.maxRetries) {
                 const retryDelay = Math.min(1000 * Math.pow(2, this.connectionRetries), 30000);
@@ -57,62 +56,67 @@ class DatabaseConnection {
         }
     }
 
-    setupEventHandlers() {
-        mongoose.connection.on('connected', () => {
-            logger.info('Mongoose connected to MongoDB');
-            this.isConnected = true;
-        });
+    async initializeModels() {
+        // Initialize all models with proper sequelize instance
+        const { initializeCommandModel } = require('./models/Command');
+        const { initializeUserModel } = require('./models/User');
+        const { initializeMenuModel } = require('./models/Menu');
+        const { initializeStatsModel } = require('./models/Stats');
+        const { initializeSessionModel } = require('./models/Session');
 
-        mongoose.connection.on('error', (error) => {
-            logger.error('Mongoose connection error:', error);
-            this.isConnected = false;
-        });
+        initializeCommandModel();
+        initializeUserModel();
+        initializeMenuModel();
+        initializeStatsModel();
+        initializeSessionModel();
+    }
 
-        mongoose.connection.on('disconnected', () => {
-            logger.warn('Mongoose disconnected from MongoDB');
-            this.isConnected = false;
+    async initializeDefaultData() {
+        try {
+            // Wait a bit for models to be fully initialized
+            await new Promise(resolve => setTimeout(resolve, 100));
+            
+            // Initialize default commands
+            const { Command } = require('./models/Command');
+            if (Command && typeof Command.initializeCommands === 'function') {
+                await Command.initializeCommands();
+            }
 
-            // Attempt to reconnect
-            setTimeout(() => {
-                if (!this.isConnected) {
-                    logger.info('Attempting to reconnect to MongoDB...');
-                    this.connect();
-                }
-            }, 5000);
-        });
+            // Initialize default menu
+            const { Menu } = require('./models/Menu');
+            if (Menu && typeof Menu.initializeMenu === 'function') {
+                await Menu.initializeMenu();
+            }
 
-        // Handle app termination
-        process.on('SIGINT', async () => {
-            await this.disconnect();
-            process.exit(0);
-        });
-
-        process.on('SIGTERM', async () => {
-            await this.disconnect();
-            process.exit(0);
-        });
+            logger.info('Default data initialized successfully');
+        } catch (error) {
+            logger.error('Error initializing default data:', error);
+        }
     }
 
     async disconnect() {
         try {
-            if (mongoose.connection.readyState !== 0) {
-                await mongoose.connection.close();
-                logger.info('Disconnected from MongoDB');
+            if (this.sequelize) {
+                await this.sequelize.close();
+                logger.info('Disconnected from PostgreSQL');
             }
             this.isConnected = false;
         } catch (error) {
-            logger.error('Error disconnecting from MongoDB:', error);
+            logger.error('Error disconnecting from PostgreSQL:', error);
         }
     }
 
     getConnectionStatus() {
         return {
             isConnected: this.isConnected,
-            readyState: mongoose.connection.readyState,
-            host: mongoose.connection.host,
-            port: mongoose.connection.port,
-            name: mongoose.connection.name
+            database: config.database.name,
+            host: config.database.host,
+            port: config.database.port
         };
+    }
+
+    getSequelize() {
+        return this.sequelize;
     }
 }
 

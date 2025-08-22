@@ -1,4 +1,4 @@
-<% layout('simple-layout') -%>
+<!-- Modern Page Layout -->
 
 <div class="page-header">
     <h1><i class="<%= pageIcon %> me-3"></i><%= pageTitle %></h1>
@@ -13,6 +13,376 @@
         </div>
         <% } %>
 
-        <p class="text-muted">This page is under development. More features will be added soon.</p>
+        <% if (typeof commands !== 'undefined' && commands && commands.length > 0) { %>
+            <!-- Command Statistics -->
+            <div class="row mb-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="stat-value"><%= stats.totalCommands %></div>
+                        <div class="stat-label">Total Commands</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-value"><%= stats.totalUsedCommands %></div>
+                        <div class="stat-label">Commands Used</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-value"><%= commands.filter(c => c.isActive).length %></div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <div class="stat-value"><%= commands.filter(c => c.ownerOnly).length %></div>
+                        <div class="stat-label">Owner Only</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Commands Table -->
+            <div class="content-card">
+                <div class="card-header">
+                    <h3>
+                        <i class="fas fa-list"></i>
+                        Available Commands
+                    </h3>
+                    <p>Manage and configure WhatsApp bot commands</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Usage Count</th>
+                                    <th>Status</th>
+                                    <th>Type</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% commands.forEach(command => { %>
+                                <tr>
+                                    <td>
+                                        <code>.<%= command.name %></code>
+                                    </td>
+                                    <td><%= command.description %></td>
+                                    <td>
+                                        <span class="badge bg-secondary"><%= command.category %></span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info"><%= command.usageCount %></span>
+                                    </td>
+                                    <td>
+                                        <div class="form-check form-switch d-flex justify-content-center align-items-center">
+                                            <input class="form-check-input" 
+                                                   type="checkbox" 
+                                                   id="switch<%= command.id %>" 
+                                                   <%= command.isActive ? 'checked' : '' %>
+                                                   onchange="toggleCommand(<%= command.id %>, '<%= command.name %>')">
+                                            <label class="form-check-label ms-2 fw-bold <%= command.isActive ? 'text-success' : 'text-danger' %>" 
+                                                   for="switch<%= command.id %>">
+                                                <small><%= command.isActive ? 'Active' : 'Inactive' %></small>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <% if (command.ownerOnly) { %>
+                                            <span class="badge bg-warning">Owner</span>
+                                        <% } else { %>
+                                            <span class="badge bg-primary">Public</span>
+                                        <% } %>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <button class="btn btn-outline-primary btn-sm" 
+                                                    onclick="editCommand(<%= command.id %>)"
+                                                    data-bs-toggle="tooltip" 
+                                                    title="Edit Command">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="btn btn-outline-info btn-sm" 
+                                                    onclick="viewCommand(<%= command.id %>)"
+                                                    data-bs-toggle="tooltip" 
+                                                    title="View Details">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        <% } else { %>
+            <p class="text-muted">This page is under development. More features will be added soon.</p>
+        <% } %>
     </div>
 </div>
+
+<% if (typeof commands !== 'undefined' && commands && commands.length > 0) { %>
+<!-- Edit Command Modal -->
+<div class="modal fade" id="editCommandModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-edit"></i>
+                    Edit Command
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="editCommandForm">
+                <div class="modal-body">
+                    <input type="hidden" id="editCommandId">
+                    
+                    <div class="form-group mb-3">
+                        <label for="editCommandName" class="form-label">Command Name</label>
+                        <input type="text" class="form-control" id="editCommandName" required>
+                        <small class="form-text text-muted">Command name without prefix (e.g., 'ping', 'menu')</small>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label for="editCommandDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="editCommandDescription" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="editCommandCategory" class="form-label">Category</label>
+                                <select class="form-control" id="editCommandCategory" required>
+                                    <option value="general">General</option>
+                                    <option value="utility">Utility</option>
+                                    <option value="fun">Fun</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="owner">Owner</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="editCommandCooldown" class="form-label">Cooldown (seconds)</label>
+                                <input type="number" class="form-control" id="editCommandCooldown" min="0" max="300" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="editCommandOwnerOnly">
+                            <label class="form-check-label" for="editCommandOwnerOnly">
+                                Owner Only
+                            </label>
+                            <small class="form-text text-muted d-block">Only bot owner can use this command</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="editCommandIsActive" checked>
+                            <label class="form-check-label" for="editCommandIsActive">
+                                Command Active
+                            </label>
+                            <small class="form-text text-muted d-block">Enable/disable this command</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- View Command Modal -->
+<div class="modal fade" id="viewCommandModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-eye"></i>
+                    Command Details
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="viewCommandContent">
+                    <!-- Command details will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Command Management JavaScript
+async function toggleCommand(commandId, commandName) {
+    try {
+        const response = await fetch(`/api/commands/${commandId}/toggle`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            // Reload page to show updated status
+            window.location.reload();
+        } else {
+            alert('Error: ' + result.error);
+        }
+    } catch (error) {
+        alert('Error toggling command status: ' + error.message);
+    }
+}
+
+async function editCommand(commandId) {
+    try {
+        // Load command data
+        const response = await fetch(`/api/commands/${commandId}`);
+        const command = await response.json();
+        
+        if (command.error) {
+            alert('Error loading command: ' + command.error);
+            return;
+        }
+        
+        // Populate form
+        document.getElementById('editCommandId').value = command.id;
+        document.getElementById('editCommandName').value = command.name;
+        document.getElementById('editCommandDescription').value = command.description;
+        document.getElementById('editCommandCategory').value = command.category;
+        document.getElementById('editCommandCooldown').value = command.cooldown || 3;
+        document.getElementById('editCommandOwnerOnly').checked = command.ownerOnly;
+        document.getElementById('editCommandIsActive').checked = command.isActive;
+        
+        // Show modal
+        new bootstrap.Modal(document.getElementById('editCommandModal')).show();
+    } catch (error) {
+        alert('Error loading command: ' + error.message);
+    }
+}
+
+async function viewCommand(commandId) {
+    try {
+        const response = await fetch(`/api/commands/${commandId}`);
+        const command = await response.json();
+        
+        if (command.error) {
+            alert('Error loading command: ' + command.error);
+            return;
+        }
+        
+        const content = `
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Command:</strong><br>
+                    <code>.${command.name}</code>
+                </div>
+                <div class="col-md-6">
+                    <strong>Category:</strong><br>
+                    <span class="badge bg-secondary">${command.category}</span>
+                </div>
+            </div>
+            <hr>
+            <div class="mb-3">
+                <strong>Description:</strong><br>
+                ${command.description}
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Cooldown:</strong><br>
+                    ${command.cooldown || 3} seconds
+                </div>
+                <div class="col-md-6">
+                    <strong>Usage Count:</strong><br>
+                    ${command.usageCount || 0} times
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Status:</strong><br>
+                    ${command.isActive ? '<span class="badge bg-success">Active</span>' : '<span class="badge bg-danger">Inactive</span>'}
+                </div>
+                <div class="col-md-6">
+                    <strong>Access:</strong><br>
+                    ${command.ownerOnly ? '<span class="badge bg-warning">Owner Only</span>' : '<span class="badge bg-primary">Public</span>'}
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('viewCommandContent').innerHTML = content;
+        new bootstrap.Modal(document.getElementById('viewCommandModal')).show();
+    } catch (error) {
+        alert('Error loading command details: ' + error.message);
+    }
+}
+
+// Form submission
+document.getElementById('editCommandForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const commandId = document.getElementById('editCommandId').value;
+    const formData = {
+        name: document.getElementById('editCommandName').value.toLowerCase().trim(),
+        description: document.getElementById('editCommandDescription').value,
+        category: document.getElementById('editCommandCategory').value,
+        cooldown: parseInt(document.getElementById('editCommandCooldown').value),
+        ownerOnly: document.getElementById('editCommandOwnerOnly').checked,
+        isActive: document.getElementById('editCommandIsActive').checked
+    };
+    
+    try {
+        const response = await fetch(`/api/commands/${commandId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            bootstrap.Modal.getInstance(document.getElementById('editCommandModal')).hide();
+            window.location.reload();
+        } else {
+            alert('Error: ' + result.error);
+        }
+    } catch (error) {
+        alert('Error saving command: ' + error.message);
+    }
+});
+</script>
+<% } %>

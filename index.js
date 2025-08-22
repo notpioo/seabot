@@ -13,8 +13,10 @@ async function startBot() {
         logger.info('Connected to MongoDB successfully');
         
         // Initialize commands in database
-        const Command = require('./src/database/models/Command');
-        await Command.initializeCommands();
+        const { Command } = require('./src/database/models/Command');
+        if (Command && Command.initializeCommands) {
+            await Command.initializeCommands();
+        }
         
         // Start Web Server
         // const webServer = new WebServer();

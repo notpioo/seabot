@@ -1,175 +1,205 @@
-const mongoose = require('mongoose');
+const { DataTypes, Model, Op } = require('sequelize');
 
-const userSchema = new mongoose.Schema({
-    jid: {
-        type: String,
-        required: true,
-        unique: true,
-        index: true
-    },
-    name: {
-        type: String,
-        default: null
-    },
-    phoneNumber: {
-        type: String,
-        default: null
-    },
-    isOwner: {
-        type: Boolean,
-        default: false
-    },
-    isBanned: {
-        type: Boolean,
-        default: false
-    },
-    banReason: {
-        type: String,
-        default: null
-    },
-    banExpiry: {
-        type: Date,
-        default: null
-    },
-    messageCount: {
-        type: Number,
-        default: 0
-    },
-    commandCount: {
-        type: Number,
-        default: 0
-    },
-    lastSeen: {
-        type: Date,
-        default: Date.now
-    },
-    firstSeen: {
-        type: Date,
-        default: Date.now
-    },
-    settings: {
-        language: {
-            type: String,
-            default: 'en'
-        },
-        notifications: {
-            type: Boolean,
-            default: true
+class User extends Model {
+    // Instance methods
+    async ban(reason, duration) {
+        this.isBanned = true;
+        this.banReason = reason;
+        if (duration) {
+            this.banExpiry = new Date(Date.now() + duration);
         }
-    },
-    stats: {
-        totalCommands: {
-            type: Number,
-            default: 0
-        },
-        totalMessages: {
-            type: Number,
-            default: 0
-        },
-        favoriteCommands: [{
-            command: String,
-            count: Number
-        }]
+        return this.save();
     }
-}, {
-    timestamps: true,
-    collection: 'users'
-});
 
-// Indexes
-userSchema.index({ jid: 1 });
-userSchema.index({ isOwner: 1 });
-userSchema.index({ isBanned: 1 });
-userSchema.index({ lastSeen: 1 });
-
-// Methods
-userSchema.methods.ban = function(reason, duration) {
-    this.isBanned = true;
-    this.banReason = reason;
-    if (duration) {
-        this.banExpiry = new Date(Date.now() + duration);
+    async unban() {
+        this.isBanned = false;
+        this.banReason = null;
+        this.banExpiry = null;
+        return this.save();
     }
-    return this.save();
-};
 
-userSchema.methods.unban = function() {
-    this.isBanned = false;
-    this.banReason = null;
-    this.banExpiry = null;
-    return this.save();
-};
-
-userSchema.methods.isCurrentlyBanned = function() {
-    if (!this.isBanned) return false;
-    if (!this.banExpiry) return true;
-    return Date.now() < this.banExpiry.getTime();
-};
-
-userSchema.methods.incrementMessageCount = function() {
-    this.messageCount += 1;
-    this.stats.totalMessages += 1;
-    this.lastSeen = new Date();
-    return this.save();
-};
-
-userSchema.methods.incrementCommandCount = function(command) {
-    this.commandCount += 1;
-    this.stats.totalCommands += 1;
-    
-    // Update favorite commands
-    const favCommand = this.stats.favoriteCommands.find(f => f.command === command);
-    if (favCommand) {
-        favCommand.count += 1;
-    } else {
-        this.stats.favoriteCommands.push({ command, count: 1 });
+    isCurrentlyBanned() {
+        if (!this.isBanned) return false;
+        if (!this.banExpiry) return true;
+        return Date.now() < this.banExpiry.getTime();
     }
-    
-    // Keep only top 10 favorite commands
-    this.stats.favoriteCommands.sort((a, b) => b.count - a.count);
-    this.stats.favoriteCommands = this.stats.favoriteCommands.slice(0, 10);
-    
-    this.lastSeen = new Date();
-    return this.save();
-};
 
-// Statics
-userSchema.statics.findByJid = function(jid) {
-    return this.findOne({ jid });
-};
+    async incrementMessageCount() {
+        this.messageCount += 1;
+        const stats = this.stats || {};
+        stats.totalMessages = (stats.totalMessages || 0) + 1;
+        this.stats = stats;
+        this.lastSeen = new Date();
+        return this.save();
+    }
 
-userSchema.statics.findOwners = function() {
-    return this.find({ isOwner: true });
-};
+    async incrementCommandCount(command) {
+        this.commandCount += 1;
+        const stats = this.stats || {};
+        stats.totalCommands = (stats.totalCommands || 0) + 1;
+        
+        // Update favorite commands
+        const favoriteCommands = stats.favoriteCommands || [];
+        const favCommand = favoriteCommands.find(f => f.command === command);
+        if (favCommand) {
+            favCommand.count += 1;
+        } else {
+            favoriteCommands.push({ command, count: 1 });
+        }
+        
+        // Keep only top 10 favorite commands
+        favoriteCommands.sort((a, b) => b.count - a.count);
+        stats.favoriteCommands = favoriteCommands.slice(0, 10);
+        
+        this.stats = stats;
+        this.lastSeen = new Date();
+        return this.save();
+    }
 
-userSchema.statics.findBanned = function() {
-    return this.find({ isBanned: true });
-};
+    // Static methods
+    static findByJid(jid) {
+        return this.findOne({ where: { jid } });
+    }
 
-userSchema.statics.getActiveUsers = function(days = 7) {
-    const cutoffDate = new Date();
-    cutoffDate.setDate(cutoffDate.getDate() - days);
-    
-    return this.find({
-        lastSeen: { $gte: cutoffDate }
-    }).sort({ lastSeen: -1 });
-};
+    static findOwners() {
+        return this.findAll({ where: { isOwner: true } });
+    }
 
-userSchema.statics.getUserStats = function() {
-    return this.aggregate([
-        {
-            $group: {
-                _id: null,
-                totalUsers: { $sum: 1 },
-                totalMessages: { $sum: '$messageCount' },
-                totalCommands: { $sum: '$commandCount' },
-                bannedUsers: {
-                    $sum: {
-                        $cond: [{ $eq: ['$isBanned', true] }, 1, 0]
-                    }
+    static findBanned() {
+        return this.findAll({ where: { isBanned: true } });
+    }
+
+    static getActiveUsers(days = 7) {
+        const cutoffDate = new Date();
+        cutoffDate.setDate(cutoffDate.getDate() - days);
+        
+        return this.findAll({
+            where: {
+                lastSeen: {
+                    [Op.gte]: cutoffDate
+                }
+            },
+            order: [['lastSeen', 'DESC']]
+        });
+    }
+
+    static async getUserStats() {
+        try {
+            const result = await this.findAll({
+                attributes: [
+                    [this.sequelize.fn('COUNT', '*'), 'totalUsers'],
+                    [this.sequelize.fn('SUM', this.sequelize.col('messageCount')), 'totalMessages'],
+                    [this.sequelize.fn('SUM', this.sequelize.col('commandCount')), 'totalCommands'],
+                    [this.sequelize.fn('COUNT', this.sequelize.literal('CASE WHEN "isBanned" = true THEN 1 END')), 'bannedUsers']
+                ],
+                raw: true
+            });
+            return result[0];
+        } catch (error) {
+            console.error('Error getting user stats:', error);
+            return { totalUsers: 0, totalMessages: 0, totalCommands: 0, bannedUsers: 0 };
+        }
+    }
+}
+
+// Get sequelize instance from connection
+const dbConnection = require('../connection');
+let sequelize;
+
+// Initialize the model only when sequelize is available
+const initializeUserModel = () => {
+    const connection = require('../connection');
+    if (!sequelize && connection.getSequelize) {
+        sequelize = connection.getSequelize();
+    }
+
+    if (sequelize) {
+        User.init({
+            id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true
+            },
+            jid: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                unique: true
+            },
+            name: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            phoneNumber: {
+                type: DataTypes.STRING,
+                allowNull: true
+            },
+            isOwner: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
+            },
+            isBanned: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false
+            },
+            banReason: {
+                type: DataTypes.TEXT,
+                allowNull: true
+            },
+            banExpiry: {
+                type: DataTypes.DATE,
+                allowNull: true
+            },
+            messageCount: {
+                type: DataTypes.INTEGER,
+                defaultValue: 0
+            },
+            commandCount: {
+                type: DataTypes.INTEGER,
+                defaultValue: 0
+            },
+            lastSeen: {
+                type: DataTypes.DATE,
+                defaultValue: DataTypes.NOW
+            },
+            firstSeen: {
+                type: DataTypes.DATE,
+                defaultValue: DataTypes.NOW
+            },
+            settings: {
+                type: DataTypes.JSONB,
+                defaultValue: {
+                    language: 'en',
+                    notifications: true
+                }
+            },
+            stats: {
+                type: DataTypes.JSONB,
+                defaultValue: {
+                    totalCommands: 0,
+                    totalMessages: 0,
+                    favoriteCommands: []
                 }
             }
-        }
-    ]);
+        }, {
+            sequelize,
+            modelName: 'User',
+            tableName: 'users',
+            timestamps: true,
+            indexes: [
+                { fields: ['jid'] },
+                { fields: ['isOwner'] },
+                { fields: ['isBanned'] },
+                { fields: ['lastSeen'] }
+            ]
+        });
+    }
 };
 
-module.exports = mongoose.model('User', userSchema);
+// Try to initialize immediately if sequelize is available
+try {
+    initializeUserModel();
+} catch (error) {
+    // Will be initialized later when connection is established
+}
+
+module.exports = { User, initializeUserModel };

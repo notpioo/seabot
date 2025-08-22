@@ -1,9 +1,26 @@
 const config = require('../../config/config');
 const logger = require('../utils/logger');
 const { isValidCommand, extractCommand, isOwner } = require('../utils/helpers');
-const User = require('../database/models/User');
-const Stats = require('../database/models/Stats');
-const Command = require('../database/models/Command');
+
+// Import models with proper initialization and error handling
+let User, Stats, Command;
+try {
+    const userModel = require('../database/models/User');
+    const statsModel = require('../database/models/Stats');
+    const commandModel = require('../database/models/Command');
+    
+    User = userModel.User || userModel;
+    Stats = statsModel.Stats || statsModel;  
+    Command = commandModel.Command || commandModel;
+    
+    logger.info('Database models imported successfully');
+} catch (error) {
+    logger.error('Error importing database models:', error);
+    // Initialize as empty objects to prevent errors
+    User = {};
+    Stats = {};
+    Command = {};
+}
 
 // Import commands
 const pingCommand = require('../commands/ping');
@@ -41,7 +58,13 @@ class MessageHandler {
 
     async loadCommandsFromDatabase() {
         try {
-            const dbCommands = await Command.find({ isActive: true });
+            // Skip database operations if models not properly initialized
+            if (!Command || !Command.sequelize || typeof Command.findAll !== 'function') {
+                logger.warn('Command model not properly initialized, skipping database commands');
+                return;
+            }
+            
+            const dbCommands = await Command.findAll({ where: { isActive: true } });
 
             for (const cmd of dbCommands) {
                 // Check if we have a file-based handler for this command or its base name
@@ -97,8 +120,13 @@ class MessageHandler {
 
     async checkAndReloadCommands() {
         try {
+            // Skip if Command model not properly initialized  
+            if (!Command || !Command.sequelize || typeof Command.findAll !== 'function') {
+                return;
+            }
+            
             // Check if database commands have been updated since last reload
-            const dbCommands = await Command.find({ isActive: true });
+            const dbCommands = await Command.findAll({ where: { isActive: true } });
             let needsReload = false;
 
             // Check if any database command is different from loaded commands
@@ -247,8 +275,13 @@ class MessageHandler {
 
     async getCommandFromMessage(messageText) {
         try {
+            // Skip if Command model not properly initialized
+            if (!Command || !Command.sequelize || typeof Command.findAll !== 'function') {
+                return null;
+            }
+            
             // Get all active commands from database
-            const commands = await Command.find({ isActive: true });
+            const commands = await Command.findAll({ where: { isActive: true } });
 
             for (const cmd of commands) {
                 // Check if message matches any command usage pattern
@@ -276,10 +309,26 @@ class MessageHandler {
 
     async executeCommand(socket, message, command, args) {
         try {
-            // Check if command exists in database and is active
-            const commandDoc = await Command.findOne({ name: command });
-            if (!commandDoc || !commandDoc.isActive) {
-                logger.debug(`Command not found or inactive: ${command}`);
+            // Check command status from shared config file
+            const fs = require('fs');
+            const path = require('path');
+            const configPath = path.join(__dirname, '..', '..', 'config', 'commands.json');
+            
+            let isCommandActive = true; // Default to true if can't read config
+            try {
+                const configData = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+                const commandConfig = configData.commands.find(c => c.name === command);
+                if (commandConfig) {
+                    isCommandActive = commandConfig.isActive;
+                    logger.debug(`Command ${command} status from config: ${isCommandActive}`);
+                }
+            } catch (error) {
+                logger.warn('Could not read command config, allowing execution by default');
+            }
+            
+            // Block execution if command is disabled in dashboard
+            if (!isCommandActive) {
+                logger.info(`Command ${command} is disabled via dashboard, ignoring`);
                 return;
             }
 
@@ -378,7 +427,14 @@ class MessageHandler {
             const lastUsed = userCooldowns[command] || 0;
 
             // Get cooldown from database (in seconds), convert to milliseconds
-            const commandDoc = await Command.findOne({ name: command });
+            let commandDoc = null;
+            if (Command && Command.sequelize && typeof Command.findOne === 'function') {
+                try {
+                    commandDoc = await Command.findOne({ where: { name: command } });
+                } catch (error) {
+                    logger.warn('Database cooldown check failed, using default cooldown');
+                }
+            }
             const cooldownMs = commandDoc ? (commandDoc.cooldown * 1000) : (config.commands.cooldown || 2000);
 
             const timePassed = now - lastUsed;
@@ -416,6 +472,12 @@ class MessageHandler {
 
     async updateUser(userId, message) {
         try {
+            // Skip user update if User model not properly initialized
+            if (!User || !User.sequelize || typeof User.findOrCreate !== 'function') {
+                logger.warn('User model not properly initialized, skipping user update');
+                return;
+            }
+            
             const userData = {
                 jid: userId,
                 lastSeen: new Date()
@@ -426,11 +488,21 @@ class MessageHandler {
                 userData.name = message.pushName;
             }
 
-            await User.findOneAndUpdate(
-                { jid: userId },
-                { $set: userData, $inc: { messageCount: 1 } },
-                { upsert: true, new: true }
-            );
+            // Sequelize way: findOrCreate then update
+            const [user, created] = await User.findOrCreate({
+                where: { jid: userId },
+                defaults: {
+                    ...userData,
+                    messageCount: 1
+                }
+            });
+
+            if (!created) {
+                await user.update({ 
+                    ...userData,
+                    messageCount: user.messageCount + 1
+                });
+            }
 
         } catch (error) {
             logger.error('Failed to update user:', error);

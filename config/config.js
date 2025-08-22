@@ -9,16 +9,23 @@ const config = {
         prefixes: ['.', '!', '#', '/']
     },
     
-    // MongoDB Configuration
+    // PostgreSQL Configuration (Replit Built-in Database)
     database: {
-        uri: process.env.MONGODB_URI || 'mongodb+srv://pioo:Avionika27@cluster0.feboa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-        name: 'seabot',
+        uri: process.env.DATABASE_URL,
+        host: process.env.PGHOST,
+        port: process.env.PGPORT,
+        name: process.env.PGDATABASE,
+        user: process.env.PGUSER,
+        password: process.env.PGPASSWORD,
         options: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            maxPoolSize: 10,
-            serverSelectionTimeoutMS: 5000,
-            socketTimeoutMS: 45000,
+            dialect: 'postgres',
+            logging: false,
+            pool: {
+                max: 10,
+                min: 0,
+                acquire: 30000,
+                idle: 10000
+            }
         }
     },
     

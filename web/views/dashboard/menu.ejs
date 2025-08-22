@@ -1,138 +1,254 @@
-<% layout('simple-layout') -%>
 
-<div class="page-header">
-    <h1><i class="fas fa-bars me-3"></i>Menu Management</h1>
-    <p class="page-description">Configure bot menu response that appears when users type .menu command</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar { 
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+        .btn-outline-secondary {
+            border-color: rgba(118, 75, 162, 0.3);
+            color: #764ba2;
+        }
+        .btn-outline-secondary:hover {
+            background: #764ba2;
+            border-color: #764ba2;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    
 
-<div class="content-card">
-    <div class="card-header">
-        <h3>Bot Menu Configuration</h3>
-        <p>Customize the message that will be sent when users use the .menu command</p>
-    </div>
-    <div class="card-body">
-        <form id="menuForm">
-            <div class="form-group">
-                <label for="menuTitle">Menu Title</label>
-                <input type="text" class="form-control" id="menuTitle" name="title" 
-                       value="<%= menu.title || 'Bot Menu' %>" 
-                       placeholder="Enter menu title">
-                <div class="form-text">This will be the main title of your bot menu</div>
-            </div>
-
-            <div class="form-group">
-                <label for="menuDescription">Menu Description</label>
-                <input type="text" class="form-control" id="menuDescription" name="description" 
-                       value="<%= menu.description || 'Welcome to our bot! Here are available features:' %>" 
-                       placeholder="Enter menu description">
-                <div class="form-text">A brief description that appears under the title</div>
-            </div>
-
-            <div class="form-group">
-                <label for="menuContent">Menu Content</label>
-                <textarea class="form-control" id="menuContent" name="content" rows="10" 
-                          placeholder="Enter your menu content here..."><%= menu.content || '' %></textarea>
-                <div class="form-text">The main content of your menu. You can use text formatting and emojis.</div>
-            </div>
-
-            <div class="d-flex gap-2 flex-wrap">
-                <button type="submit" class="btn btn-primary">
-                    <i class="fas fa-save me-2"></i>Save Menu
-                </button>
-                <button type="button" class="btn btn-secondary" onclick="resetToDefault()">
-                    <i class="fas fa-undo me-2"></i>Reset to Default
-                </button>
-                <button type="button" class="btn btn-info" onclick="previewMenu()">
-                    <i class="fas fa-eye me-2"></i>Preview
-                </button>
-            </div>
-        </form>
-
-        <!-- Preview Modal -->
-        <div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Menu Preview</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    <div class="container mt-4">
+        <!-- Header -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body text-center py-5">
+                        <i class="fas fa-bars fa-3x text-primary mb-3"></i>
+                        <h2 class="fw-bold">Menu Management</h2>
+                        <p class="text-muted">Configure bot menu response that appears when users type .menu command</p>
                     </div>
-                    <div class="modal-body">
-                        <div id="previewContent" style="white-space: pre-wrap; font-family: monospace; background: #f8f9fa; padding: 1rem; border-radius: 5px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Editor -->
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-edit me-2"></i>Edit Menu Content</h5>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="card-body">
+                        <form id="menuForm">
+                            <div class="mb-3">
+                                <label for="menuContent" class="form-label">Menu Content</label>
+                                <textarea class="form-control" id="menuContent" rows="10" placeholder="Enter your menu content here..." required><%= menu.content %></textarea>
+                                <div class="form-text">Use *text* for bold, and line breaks for formatting</div>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-save me-2"></i>Save Menu
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="resetMenu">
+                                    <i class="fas fa-undo me-2"></i>Reset to Default
+                                </button>
+                                <button type="button" class="btn btn-outline-info" id="previewMenu">
+                                    <i class="fas fa-eye me-2"></i>Preview
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Tips</h5>
+                    </div>
+                    <div class="card-body">
+                        <h6>Formatting Tips:</h6>
+                        <ul class="small">
+                            <li><code>*text*</code> - Bold text</li>
+                            <li><code>_text_</code> - Italic text</li>
+                            <li><code>~text~</code> - Strikethrough</li>
+                            <li><code>```code```</code> - Monospace</li>
+                        </ul>
+                        
+                        <h6 class="mt-3">Available Emojis:</h6>
+                        <div class="d-flex flex-wrap gap-2 small">
+                            <span>🤖 📋 ⚙️ 📊</span>
+                            <span>✅ ❌ 🔧 📱</span>
+                            <span>🎯 💻 📈 🔥</span>
+                            <span>⭐ 💡 🚀 🎉</span>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <div class="alert alert-info small">
+                                <i class="fas fa-lightbulb me-1"></i>
+                                The menu will be displayed when users send the .menu command to your bot.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Status -->
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span>Menu Status:</span>
+                            <span class="badge bg-success">Active</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span>Last Updated:</span>
+                            <span class="text-muted small">Just now</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-document.getElementById('menuForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+    <!-- Preview Modal -->
+    <div class="modal fade" id="previewModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-eye me-2"></i>Menu Preview</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="bg-light p-3 rounded" style="font-family: monospace; white-space: pre-wrap;" id="previewContent"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
+    <!-- Success/Error Messages -->
+    <div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+        <div id="alertContainer"></div>
+    </div>
 
-    if (!data.content || data.content.trim() === '') {
-        alert('Menu content is required!');
-        return;
-    }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Show alert function
+        function showAlert(message, type = 'success') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertId = 'alert-' + Date.now();
+            const alert = document.createElement('div');
+            alert.id = alertId;
+            alert.className = `alert alert-${type} alert-dismissible fade show`;
+            alert.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alert);
+            
+            setTimeout(() => {
+                const alertElement = document.getElementById(alertId);
+                if (alertElement) {
+                    alertElement.remove();
+                }
+            }, 5000);
+        }
 
-    try {
-        const response = await fetch('/api/menu', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
+        // Save menu
+        document.getElementById('menuForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const content = document.getElementById('menuContent').value;
+            
+            if (!content.trim()) {
+                showAlert('Menu content cannot be empty', 'danger');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/menu/api/menu', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ content })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('Menu updated successfully!', 'success');
+                } else {
+                    showAlert(result.error || 'Failed to update menu', 'danger');
+                }
+            } catch (error) {
+                console.error('Error saving menu:', error);
+                showAlert('Error saving menu. Please try again.', 'danger');
+            }
         });
 
-        const result = await response.json();
-
-        if (result.success) {
-            alert('Menu updated successfully!');
-        } else {
-            alert('Error: ' + (result.error || 'Failed to update menu'));
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to save menu. Please try again.');
-    }
-});
-
-async function resetToDefault() {
-    if (confirm('Are you sure you want to reset the menu to default? This will overwrite your current settings.')) {
-        try {
-            const response = await fetch('/api/menu/reset', {
-                method: 'POST'
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-                location.reload();
-            } else {
-                alert('Error: ' + (result.error || 'Failed to reset menu'));
+        // Reset menu
+        document.getElementById('resetMenu').addEventListener('click', async () => {
+            if (confirm('Are you sure you want to reset the menu to default?')) {
+                try {
+                    const response = await fetch('/menu/api/menu/reset', {
+                        method: 'POST'
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        showAlert('Menu reset to default successfully!', 'success');
+                        // Update form fields
+                        document.getElementById('menuContent').value = result.data.content;
+                    } else {
+                        showAlert(result.error || 'Failed to reset menu', 'danger');
+                    }
+                } catch (error) {
+                    console.error('Error resetting menu:', error);
+                    showAlert('Error resetting menu. Please try again.', 'danger');
+                }
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Failed to reset menu. Please try again.');
-        }
-    }
-}
+        });
 
-function previewMenu() {
-    const title = document.getElementById('menuTitle').value || 'Bot Menu';
-    const description = document.getElementById('menuDescription').value || 'Welcome to our bot! Here are available features:';
-    const content = document.getElementById('menuContent').value || '';
-
-    const previewText = `*${title}*\n\n${description}\n\n${content}`;
-
-    document.getElementById('previewContent').textContent = previewText;
-
-    const modal = new bootstrap.Modal(document.getElementById('previewModal'));
-    modal.show();
-}
-</script>
+        // Preview menu
+        document.getElementById('previewMenu').addEventListener('click', () => {
+            const content = document.getElementById('menuContent').value;
+            document.getElementById('previewContent').textContent = content;
+            new bootstrap.Modal(document.getElementById('previewModal')).show();
+        });
+    </script>
+</body>
+</html>
