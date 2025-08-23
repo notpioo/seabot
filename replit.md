@@ -1,6 +1,6 @@
 # Overview
 
-SeaBot is a WhatsApp chatbot built with Node.js that provides automated messaging capabilities through the WhatsApp Business API. The bot uses Baileys library for WhatsApp integration and MongoDB for data persistence. It features a modular command system, user management, session handling, and comprehensive logging capabilities.
+SeaBot is a WhatsApp chatbot built using the Baileys library that provides automated responses and user management features. The bot connects to WhatsApp Web, handles incoming messages, processes commands with rate limiting, and maintains user profiles with a virtual economy system including balance, genesis points, and daily usage limits.
 
 # User Preferences
 
@@ -8,52 +8,59 @@ Preferred communication style: Simple, everyday language.
 
 # System Architecture
 
-## Core Architecture
-- **Runtime Environment**: Node.js with asynchronous event-driven architecture
-- **WhatsApp Integration**: Baileys library (@whiskeysockets/baileys) for direct WhatsApp Web API communication
-- **Database Layer**: MongoDB with Mongoose ODM for data modeling and queries
-- **Authentication**: Multi-file auth state management for WhatsApp session persistence
-- **Logging System**: Winston logger with file and console outputs, configurable log levels
+## Bot Framework
+- **WhatsApp Integration**: Uses @whiskeysockets/baileys library for WhatsApp Web connectivity
+- **Authentication**: Multi-file auth state persistence for maintaining WhatsApp sessions
+- **Connection Management**: Auto-reconnection logic with error handling and status monitoring
+- **Message Processing**: Event-driven architecture handling message upserts and connection updates
 
-## Bot Framework Design
-- **Command System**: Modular command architecture with dynamic loading and registration
-- **Message Handling**: Event-driven message processing with prefix-based command detection
-- **User Management**: Comprehensive user profiling with permissions, banning, and statistics tracking
-- **Session Management**: Persistent WhatsApp session storage with automatic reconnection handling
+## Command System
+- **Modular Commands**: Plugin-based command architecture with individual command files
+- **Prefix Support**: Multiple command prefixes (., !, #, /) for flexible user interaction
+- **Command Registry**: Centralized command mapping in messageHandler for easy extensibility
+- **Built-in Commands**: Ping (latency testing) and Profile (user information display)
 
-## Configuration Management
-- **Environment-based Config**: Centralized configuration with environment variable support
-- **Multi-prefix Support**: Flexible command prefixes (., !, #, /) for user convenience
-- **Connection Management**: Robust database connection handling with retry logic and exponential backoff
+## User Management
+- **User Middleware**: Automatic user registration and profile management
+- **Status Hierarchy**: Three-tier user system (Owner, Premium, Basic) with different privileges
+- **Activity Tracking**: Last command timestamp and member registration date tracking
+- **Profile Updates**: Dynamic push name updates and user data synchronization
 
-## Error Handling & Resilience
-- **Graceful Shutdown**: SIGINT/SIGTERM signal handling for clean process termination
-- **Unhandled Exception Catching**: Global error handlers for uncaught exceptions and promise rejections
-- **Connection Recovery**: Automatic database and WhatsApp reconnection with configurable retry limits
-- **Rate Limiting**: Built-in cooldown and rate limiting system for command usage
+## Rate Limiting & Economy
+- **Daily Limits**: Command usage limits that reset every 24 hours for basic users
+- **Cooldown System**: 2-second cooldown between commands to prevent spam
+- **Virtual Economy**: Balance and genesis point system for potential future features
+- **Privilege System**: Unlimited access for owners and premium users
 
-## Data Models
-- **User Model**: Stores user profiles, permissions, statistics, and ban management
-- **Session Model**: Manages WhatsApp session data, device info, and connection tracking
-- **Settings System**: User-specific configuration storage for personalized bot behavior
+## Data Layer
+- **MongoDB Integration**: Mongoose ODM for database operations and schema management
+- **User Schema**: Comprehensive user model with timestamps, limits, and economy fields
+- **Connection Handling**: Robust database connection with error handling and auto-reconnection
+- **Data Persistence**: User state and command history maintained across bot restarts
+
+## Error Handling & Logging
+- **Silent Logging**: Pino logger configured for minimal output during normal operation
+- **Error Recovery**: Graceful error handling in commands and database operations
+- **Connection Resilience**: Automatic reconnection for both WhatsApp and MongoDB connections
+- **Debug Information**: Console logging for connection status and user registration events
 
 # External Dependencies
 
-## Primary Services
-- **MongoDB Atlas**: Cloud database service for user data, sessions, and bot configuration storage
-- **WhatsApp Business API**: Real-time messaging through Baileys WebSocket connection
+## Core Dependencies
+- **@whiskeysockets/baileys**: WhatsApp Web API client for bot connectivity and message handling
+- **mongoose**: MongoDB object modeling for user data persistence and schema validation
+- **@hapi/boom**: HTTP error handling library used by Baileys for connection error management
+- **pino**: High-performance logging library for structured logging and debugging
 
-## Core Libraries
-- **@whiskeysockets/baileys**: WhatsApp Web API client for message sending/receiving
-- **mongoose**: MongoDB object modeling for Node.js with built-in validation
-- **winston**: Comprehensive logging library with multiple transport options
-- **pino**: High-performance JSON logger used internally by Baileys
+## Utility Dependencies
+- **moment**: Date and time manipulation for user registration dates and time formatting
+- **dotenv**: Environment variable management for configuration and sensitive data
 
-## Utilities
-- **qrcode-terminal**: Terminal QR code generation for WhatsApp authentication
-- **dotenv**: Environment variable management for secure configuration
-- **fs/path**: Native Node.js modules for file system operations and session management
+## Database
+- **MongoDB**: NoSQL database for storing user profiles, limits, economy data, and activity logs
+- **Connection**: Configured through environment variable MONGODB_URI with connection pooling
 
-## Development Tools
-- **npm**: Package management and dependency resolution
-- **nodemon**: Development server with automatic restart capabilities (implied usage)
+## Environment Configuration
+- **BOT_NAME**: Customizable bot name (default: SeaBot)
+- **OWNER_NUMBER**: WhatsApp number with owner privileges and unlimited access
+- **MONGODB_URI**: Database connection string for user data persistence

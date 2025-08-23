@@ -1,56 +1,63 @@
-const { connectToDatabase } = require('./src/database/connection');
-const WhatsAppClient = require('./src/client/whatsapp');
-// const WebServer = require('./web/app');
-const logger = require('./src/utils/logger');
-const config = require('./config/config');
+const { default: makeWASocket, DisconnectReason, useMultiFileAuthState } = require('@whiskeysockets/baileys');
+const { Boom } = require('@hapi/boom');
+const pino = require('pino');
+const qrcode = require('qrcode-terminal');
+const config = require('./config/bot');
+const connectDB = require('./database/connection');
+const messageHandler = require('./handlers/messageHandler');
+const { resetDailyLimits } = require('./services/limitService');
+
+// Connect to MongoDB
+connectDB();
 
 async function startBot() {
-    try {
-        logger.info('Starting SeaBot...');
+    const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
+    
+    const sock = makeWASocket({
+        logger: pino({ level: 'silent' }),
+        auth: state,
+        browser: ['SeaBot', 'Chrome', '1.0.0']
+    });
+
+    sock.ev.on('connection.update', (update) => {
+        const { connection, lastDisconnect, qr } = update;
         
-        // Connect to MongoDB
-        await connectToDatabase();
-        logger.info('Connected to MongoDB successfully');
-        
-        // Initialize commands in database
-        const { Command } = require('./src/database/models/Command');
-        if (Command && Command.initializeCommands) {
-            await Command.initializeCommands();
+        if (qr) {
+            console.log('📱 Scan QR code below to connect:');
+            qrcode.generate(qr, { small: true });
         }
         
-        // Start Web Server
-        // const webServer = new WebServer();
-        // webServer.start();
-        
-        // Initialize WhatsApp client
-        const whatsappClient = new WhatsAppClient();
-        await whatsappClient.initialize();
-        
-        logger.info('SeaBot started successfully');
-    } catch (error) {
-        logger.error('Failed to start SeaBot:', error);
-        process.exit(1);
-    }
+        if (connection === 'close') {
+            const shouldReconnect = (lastDisconnect.error = Boom)?.output?.statusCode !== DisconnectReason.loggedOut;
+            console.log('Connection closed due to ', lastDisconnect.error, ', reconnecting ', shouldReconnect);
+            
+            if (shouldReconnect) {
+                startBot();
+            }
+        } else if (connection === 'open') {
+            console.log(`✅ ${config.botName} is now connected!`);
+            console.log(`📞 Owner: ${config.ownerNumber}`);
+        }
+    });
+
+    sock.ev.on('creds.update', saveCreds);
+    
+    sock.ev.on('messages.upsert', async (m) => {
+        await messageHandler(sock, m);
+    });
+
+    // Reset daily limits every day at midnight
+    setInterval(() => {
+        const now = new Date();
+        if (now.getHours() === 0 && now.getMinutes() === 0) {
+            resetDailyLimits();
+        }
+    }, 60000); // Check every minute
+
+    return sock;
 }
 
-// Handle process termination gracefully
-process.on('SIGINT', () => {
-    logger.info('Received SIGINT, shutting down gracefully...');
-    process.exit(0);
-});
-
-process.on('SIGTERM', () => {
-    logger.info('Received SIGTERM, shutting down gracefully...');
-    process.exit(0);
-});
-
-process.on('unhandledRejection', (reason, promise) => {
-    logger.error('Unhandled Rejection at:', promise, 'reason:', reason);
-});
-
-process.on('uncaughtException', (error) => {
-    logger.error('Uncaught Exception:', error);
+startBot().catch(err => {
+    console.error('Error starting bot:', err);
     process.exit(1);
 });
-
-startBot();

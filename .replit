@@ -1,5 +1,4 @@
 modules = ["nodejs-20"]
-run = "node index.js"
 [agent]
 expertMode = true
 
@@ -16,23 +15,11 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Web Dashboard"
+args = "WhatsApp Bot"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "WhatsApp Bot"
-
-[[workflows.workflow]]
-name = "Web Dashboard"
-author = "agent"
-
-[workflows.workflow.metadata]
-outputType = "webview"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node simple-web-server.js"
-waitForPort = 5000
+args = "whatsapp-bot"
 
 [[workflows.workflow]]
 name = "WhatsApp Bot"
@@ -40,14 +27,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "node index.js"
+args = "npm install @whiskeysockets/baileys @hapi/boom pino mongoose dotenv moment && node index.js"
 
 [workflows.workflow.metadata]
 outputType = "console"
 
-[[ports]]
-localPort = 5000
-externalPort = 80
+[[workflows.workflow]]
+name = "whatsapp-bot"
+author = "agent"
 
-[deployment]
-run = ["sh", "-c", "node index.js"]
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install @whiskeysockets/baileys @hapi/boom pino mongoose dotenv moment"
