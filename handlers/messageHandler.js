@@ -9,6 +9,7 @@ const profileCommand = require('../commands/profile');
 const bratCommand = require('../commands/brat');
 const getlidCommand = require('../commands/getlid');
 const linkjidCommand = require('../commands/linkjid');
+const gagCommand = require('../commands/gag');
 const stalkmlCommand = require('../commands/stalkml');
 
 const commands = {
@@ -17,7 +18,10 @@ const commands = {
     'brat': bratCommand,
     'getlid': getlidCommand,
     'linkjid': linkjidCommand,
-    'stalkml': stalkmlCommand
+    'gag': gagCommand,
+    'stalkml': stalkmlCommand,
+    'stalkig': require('../commands/stalkig'),
+    'stalktt': require('../commands/stalktt')
 };
 
 async function messageHandler(sock, m) {
