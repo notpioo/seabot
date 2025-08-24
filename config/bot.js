@@ -31,5 +31,5 @@ module.exports = {
     
     // API Keys
     betabotzApiKey: 'babychand',
-    botcahxApiKey: 'ab72benE',
+    botcahxApiKey: 'babychand',
 };

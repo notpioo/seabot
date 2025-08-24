@@ -11,6 +11,8 @@ const getlidCommand = require('../commands/getlid');
 const linkjidCommand = require('../commands/linkjid');
 const gagCommand = require('../commands/gag');
 const stalkmlCommand = require('../commands/stalkml');
+const hidetagCommand = require('../commands/hidetag');
+const hitamkanCommand = require('../commands/hitamkan');
 
 const commands = {
     'ping': pingCommand,
@@ -21,7 +23,10 @@ const commands = {
     'gag': gagCommand,
     'stalkml': stalkmlCommand,
     'stalkig': require('../commands/stalkig'),
-    'stalktt': require('../commands/stalktt')
+    'stalktt': require('../commands/stalktt'),
+    'hidetag': hidetagCommand,
+    'hitamkan': hitamkanCommand,
+    'patrick': require('../commands/patrick')
 };
 
 async function messageHandler(sock, m) {
@@ -30,7 +35,8 @@ async function messageHandler(sock, m) {
         if (!message.message || message.key.fromMe) return;
 
         const messageText = message.message.conversation || 
-                           message.message.extendedTextMessage?.text || '';
+                           message.message.extendedTextMessage?.text || 
+                           message.message.imageMessage?.caption || '';
         
         if (!messageText) return;
 

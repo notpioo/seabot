@@ -22,6 +22,10 @@ args = "WhatsApp Bot"
 task = "workflow.run"
 args = "whatsapp-bot"
 
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Image Server"
+
 [[workflows.workflow]]
 name = "WhatsApp Bot"
 author = "agent"
@@ -41,5 +45,21 @@ author = "agent"
 task = "shell.exec"
 args = "npm install @whiskeysockets/baileys @hapi/boom pino mongoose dotenv moment"
 
+[[workflows.workflow]]
+name = "Image Server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node server.js"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "console"
+
 [deployment]
 run = ["sh", "-c", "node index.js"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80

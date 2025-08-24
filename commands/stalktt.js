@@ -1,5 +1,3 @@
-
-const axios = require('axios');
 const config = require('../config/bot');
 
 async function stalkttCommand(sock, message, user, args) {
@@ -17,7 +15,7 @@ async function stalkttCommand(sock, message, user, args) {
             return;
         }
 
-        const username = args[0].replace('@', ''); // Remove @ if user includes it
+        const username = args[0].replace('@', '');
 
         // Validate username format
         if (!/^[a-zA-Z0-9._]+$/.test(username)) {
@@ -32,118 +30,103 @@ async function stalkttCommand(sock, message, user, args) {
             text: '🔍 Mencari informasi TikTok user...' 
         });
 
-        // Try BetaBotz API first, then fallback to BotCahX API
-        let response;
-        let apiSource = '';
+        console.log(`🔍 Command: stalktt`);
+        console.log(`🔄 Trying BotCahX API for TikTok...`);
+
+        // Use the correct BotCahX endpoint based on the image shown
+        const apiUrl = `https://api.botcahx.eu.org/api/stalk/tt?apikey=${config.botcahxApiKey}&username=${username}`;
         
-        // First attempt: BetaBotz API
-        try {
-            console.log('🔄 Trying BetaBotz API for TikTok...');
-            const betabotzUrl = `https://api.betabotz.eu.org/api/stalk/tt?apikey=${config.betabotzApiKey}&username=${username}`;
-            
-            const betabotzResponse = await fetch(betabotzUrl, {
-                timeout: 15000,
-                headers: {
-                    'Accept': 'application/json',
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                }
-            });
-            
-            if (betabotzResponse.ok) {
-                response = await betabotzResponse.json();
-                if (response && response.code === 200 && response.result) {
-                    apiSource = 'BetaBotz';
-                    console.log('✅ BetaBotz TikTok API success');
-                } else {
-                    throw new Error('BetaBotz returned invalid response');
-                }
-            } else {
-                throw new Error(`BetaBotz returned ${betabotzResponse.status}`);
+        const response = await fetch(apiUrl, {
+            timeout: 15000,
+            headers: {
+                'Accept': 'application/json',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
             }
-            
-        } catch (betabotzError) {
-            console.log('❌ BetaBotz failed:', betabotzError.message);
-            console.log('🔄 Trying BotCahX API fallback...');
-            
-            try {
-                // Fallback: BotCahX API
-                const botcahxUrl = `https://api.botcahx.eu.org/api/stalk/tt?apikey=${config.botcahxApiKey}&username=${username}`;
-                
-                const botcahxResponse = await fetch(botcahxUrl, {
-                    timeout: 15000,
-                    headers: {
-                        'Accept': 'application/json',
-                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                    }
-                });
-                
-                if (botcahxResponse.ok) {
-                    response = await botcahxResponse.json();
-                    if (response && response.status === true && response.result) {
-                        apiSource = 'BotCahX';
-                        console.log('✅ BotCahX TikTok API success');
-                    } else {
-                        throw new Error('BotCahX returned invalid response');
-                    }
-                } else {
-                    throw new Error(`BotCahX returned ${botcahxResponse.status}`);
-                }
-                
-            } catch (botcahxError) {
-                console.log('❌ BotCahX also failed:', botcahxError.message);
-                throw new Error('Both BetaBotz and BotCahX APIs failed');
-            }
-        }
+        });
 
-        console.log(`TikTok API Response from ${apiSource}:`, JSON.stringify(response, null, 2));
-
-        // Process response
-        if (response && response.result) {
-            const data = response.result;
-            
-            const resultText = `🎵 *TIKTOK PROFILE INFO*
-
-👤 *Username:* ${data.username || 'Unknown'}
-📝 *Description:* ${data.description || 'No description'}
-❤️ *Likes:* ${data.likes || 0}
-👥 *Followers:* ${data.followers || 0}
-➕ *Following:* ${data.following || 0}
-📱 *Total Posts:* ${data.totalPosts || 0}
-
-🔗 *Profile:* https://tiktok.com/@${username}`;
-
-            // Send profile picture if available
-            if (data.profile) {
-                try {
-                    await sock.sendMessage(from, {
-                        image: { url: data.profile },
-                        caption: resultText
-                    });
-                } catch (imageError) {
-                    console.log('Failed to send profile picture:', imageError);
-                    await sock.sendMessage(from, { 
-                        text: resultText 
-                    });
-                }
-            } else {
-                await sock.sendMessage(from, { 
-                    text: resultText 
-                });
-            }
-
-        } else {
+        if (!response.ok) {
+            console.log(`❌ BotCahX returned ${response.status}`);
             await sock.sendMessage(from, { 
                 text: `❌ User TikTok tidak ditemukan!
 
 🔍 *Kemungkinan penyebab:*
 • Username salah atau tidak ada
-• Akun private/tidak aktif
+• Akun private/tidak aktif  
 • API sedang maintenance
 
 💡 *Tips:* 
 • Pastikan username benar
 • Coba tanpa @ symbol
 • Contoh: .stalktt whttss` 
+            });
+            return;
+        }
+
+        const responseText = await response.text();
+        
+        // Check if response is HTML (error page)
+        if (responseText.startsWith('<!DOCTYPE') || responseText.startsWith('<html')) {
+            console.log(`❌ BotCahX returned HTML error page`);
+            await sock.sendMessage(from, { 
+                text: '❌ API tidak tersedia saat ini, coba lagi nanti!' 
+            });
+            return;
+        }
+
+        const data = JSON.parse(responseText);
+        console.log(`BotCahX TikTok API Response:`, JSON.stringify(data, null, 2));
+
+        // Check response format based on the example provided
+        if (!data || !data.status || data.code !== 200 || !data.result) {
+            console.log(`❌ BotCahX returned invalid response format`);
+            await sock.sendMessage(from, { 
+                text: '❌ Data TikTok tidak ditemukan atau format response tidak valid!' 
+            });
+            return;
+        }
+
+        console.log(`✅ BotCahX TikTok API success`);
+
+        // Parse response data according to the exact format shown
+        const result = data.result;
+        
+        const profileData = {
+            username: result.username || username,
+            description: result.description || 'No description',
+            likes: result.likes || 0,
+            followers: result.followers || 0,
+            following: result.following || 0,
+            totalPosts: result.totalPosts || 0,
+            profile: result.profile
+        };
+
+        const resultText = `🎵 *TIKTOK PROFILE INFO*
+
+👤 *Username:* @${profileData.username}
+📝 *Description:* ${profileData.description}
+❤️ *Likes:* ${Number(profileData.likes).toLocaleString()}
+👥 *Followers:* ${Number(profileData.followers).toLocaleString()}
+➕ *Following:* ${Number(profileData.following).toLocaleString()}
+📱 *Total Posts:* ${Number(profileData.totalPosts).toLocaleString()}
+
+🔗 *Profile:* https://tiktok.com/@${username}`;
+
+        // Send profile picture if available
+        if (profileData.profile) {
+            try {
+                await sock.sendMessage(from, {
+                    image: { url: profileData.profile },
+                    caption: resultText
+                });
+            } catch (imageError) {
+                console.log('Failed to send profile picture:', imageError);
+                await sock.sendMessage(from, { 
+                    text: resultText 
+                });
+            }
+        } else {
+            await sock.sendMessage(from, { 
+                text: resultText 
             });
         }
 
